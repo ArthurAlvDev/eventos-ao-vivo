@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 /**
- * Utilitário ultra-rápido para extrair o ID do vídeo do YouTube de qualquer formato de URL
+ * Utilitário para extrair com segurança o ID do vídeo do YouTube
  */
 function getYouTubeId(urlOrId) {
   if (!urlOrId) return '';
@@ -14,13 +14,16 @@ function getYouTubeId(urlOrId) {
 
 /**
  * Componente VideoPlayer com foco em performance:
- * - Se permite_embed === true: Iframe nativo do YouTube com loading="lazy", preconnect e youtube-nocookie.
- * - Se permite_embed === false: Botão grande, acessível e chamativo "Abrir no YouTube" (zero JavaScript bloat).
+ * - Se permite_embed === true: Iframe nativo com loading="lazy" no domínio youtube-nocookie.
+ * - Se permite_embed === false: Botão de alto destaque "Abrir no YouTube" (zero JavaScript bloat).
  */
 export const VideoPlayer = memo(function VideoPlayer({ match }) {
-  const { permite_embed, youtube_id, url, titulo } = match;
-  const videoId = getYouTubeId(youtube_id || url);
-  const targetUrl = url || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : '#');
+  const { permite_embed, id_video, youtube_id, link_direto, url, titulo } = match;
+
+  const rawId = id_video || youtube_id;
+  const rawUrl = link_direto || url;
+  const videoId = getYouTubeId(rawId || rawUrl);
+  const targetUrl = rawUrl || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : '#');
 
   // Caso 1: Embed permitido - Iframe direto otimizado com lazy loading
   if (permite_embed && videoId) {
@@ -38,12 +41,12 @@ export const VideoPlayer = memo(function VideoPlayer({ match }) {
     );
   }
 
-  // Caso 2: Embed bloqueado pelo canal ou desativado - Botão grande direto
+  // Caso 2: Embed falso/desativado - Botão grande direto
   return (
     <div className="video-wrapper">
       <div className="no-embed-fallback">
         <p className="no-embed-notice">
-          Transmissão exclusiva no aplicativo do YouTube
+          Transmissão disponível diretamente no aplicativo do YouTube
         </p>
         <a
           href={targetUrl}

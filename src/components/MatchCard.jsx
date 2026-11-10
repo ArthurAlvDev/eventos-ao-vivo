@@ -2,13 +2,14 @@ import React, { memo } from 'react';
 import { VideoPlayer } from './VideoPlayer';
 
 export const MatchCard = memo(function MatchCard({ match }) {
-  const { titulo, detalhes, campeonato, canal, placar, status } = match;
+  const { titulo, detalhes, campeonato, liga, canal, idioma, placar, status } = match;
+  const leagueName = liga || campeonato || 'Futebol Ao Vivo';
 
   return (
     <article className="match-card">
       <header className="match-header">
-        <span className="championship-tag" title={campeonato}>
-          {campeonato || 'Futebol'}
+        <span className="championship-tag" title={leagueName}>
+          {leagueName}
         </span>
         <div className="match-status-wrap">
           <span className="pulse-dot" aria-hidden="true" />
@@ -16,7 +17,7 @@ export const MatchCard = memo(function MatchCard({ match }) {
         </div>
       </header>
 
-      {/* Player com lazy loading nativo ou botão "Abrir no YouTube" */}
+      {/* Player otimizado (iframe lazy load ou botão "Abrir no YouTube") */}
       <VideoPlayer match={match} />
 
       <footer className="match-info">
@@ -29,7 +30,7 @@ export const MatchCard = memo(function MatchCard({ match }) {
               <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
               <polyline points="17 2 12 7 7 2"/>
             </svg>
-            {canal || 'Transmissão Ao Vivo'}
+            {canal || idioma || 'Transmissão Oficial'}
           </span>
 
           {placar && <span className="score-badge">{placar}</span>}
