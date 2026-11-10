@@ -1,0 +1,43 @@
+name: Buscador de Partidas de Futebol Ao Vivo
+
+on:
+  schedule:
+    # Executa a cada 20 minutos (ajuste conforme a necessidade e cota de API)
+    - cron: '*/20 * * * *'
+  workflow_dispatch: # Permite disparo manual pelo painel de Actions do GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  track_matches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Instalar Dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Executar Agente Buscador
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python search_live_football.py --blocklist blocklist.txt --output partidas.json
+
+      - name: Commit e Push das Partidas Atualizadas
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add partidas.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Partidas ao vivo atualizadas [skip ci]" && git push)

@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Futebol Ao Vivo",
+    "slug": "futebol-ao-vivo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0E14",
+    "androidStatusBar": {
+      "backgroundColor": "#0B0E14",
+      "barStyle": "light-content"
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#0B0E14",
+      "barStyle": "light-content"
+    },
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.futebol.aovivo",
+      "blockedPermissions": [],
+      "permissions": [
+        "INTERNET"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": {
+            "scheme": "vnd.youtube"
+          }
+        }
+      ]
+    }
+  }
+}

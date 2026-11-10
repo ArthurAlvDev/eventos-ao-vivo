@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Jogos Ao Vivo - Futebol",
+  "version": "1.0.0",
+  "description": "Lista de partidas de futebol transmitidas ao vivo no YouTube por categoria.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Jogos Ao Vivo"
+  }
+}

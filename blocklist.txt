@@ -1,0 +1,7 @@
+# Lista de Não (Blocklist de Canais do YouTube)
+# Adicione um ID de canal por linha (ex: UCxxxxxxxxxxxxxxxxx).
+# Linhas iniciadas com '#' ou em branco são ignoradas.
+
+# Exemplos de canais fakes conhecidos / canais de gameplay / rádios estáticas:
+# UC_x5XG1OV2P6uZZ5FSM9Ttw
+# UC1234567890abcdefghijklm

@@ -1,0 +1,10 @@
+{
+  "name": "eventos-ao-vivo-telegram-bot",
+  "version": "1.0.0",
+  "description": "Bot do Telegram para gerenciar blocklist e acionar o GitHub Actions sem dependências externas",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
