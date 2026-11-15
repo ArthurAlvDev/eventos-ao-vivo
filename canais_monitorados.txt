@@ -1,0 +1,22 @@
+# Canais Monitorados Diretamente (aba /streams - Ao Vivo e Agendadas)
+# Formato: @handle | Nome do Canal | FLAG
+# Flags disponíveis:
+#   VIP    -> Aprovação Direta: qualquer live esportiva ao vivo ou agendada entra direto (inclusive outros esportes!)
+#   PADRAO -> Passa pelo crivo completo de Futebol/Futsal
+
+@CazeTV | CazéTV | VIP
+@canalgoatbr | Canal GOAT | VIP
+@getv | ge tv | VIP
+@xsports.brasil | Xsports | VIP
+@paulistao | Paulistão | VIP
+@nbabrasil | NBA Brasil | VIP
+@nflbrasil | NFL Brasil | VIP
+@nbboficial | NBB CAIXA | VIP
+@CBFATV | CBFA TV | VIP
+@TNTSportsBR | TNT Sports Brasil | PADRAO
+@brasil | Confederação Brasileira de Futebol | PADRAO
+@CBFSTV | Confederação Brasileira de Futebol de Salão (CBFS) | PADRAO
+@desimpedidos | Desimpedidos | PADRAO
+@NSports | N Sports | PADRAO
+@recordplus.oficial | RecordPlus | PADRAO
+@espnbrasil | ESPN Brasil | PADRAO

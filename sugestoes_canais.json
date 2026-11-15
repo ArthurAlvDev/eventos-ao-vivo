@@ -1,0 +1,336 @@
+{
+  "atualizado_em": "2026-11-12 08:37:22",
+  "candidatos_aprovacao_direta_vip": [
+    {
+      "canal": "Confederação Brasileira de Futebol de Salão (CBFS)",
+      "canal_id": "UCQm8rQBRn_qRHMOWdnYtA_w",
+      "score_reputacao": 1950,
+      "jogos_aprovados": 65,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "TNT Sports Brasil",
+      "canal_id": "UCs-6sCz2LJm1PrWQN4ErsPw",
+      "score_reputacao": 150,
+      "jogos_aprovados": 5,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "Corinthians TV",
+      "canal_id": "UCqRraVICLr0asn90cAvkIZQ",
+      "score_reputacao": 120,
+      "jogos_aprovados": 4,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "Sports Show",
+      "canal_id": "UCNTpMLLMQArRjkC6uMQ5AoA",
+      "score_reputacao": 90,
+      "jogos_aprovados": 3,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "Futebol Interior",
+      "canal_id": "UCmdRUiV0M8KvtA3OEhmaXIA",
+      "score_reputacao": 90,
+      "jogos_aprovados": 3,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "+3 Minutos",
+      "canal_id": "UCbAA8wPRAGwZcJQhIDRz7mg",
+      "score_reputacao": 60,
+      "jogos_aprovados": 3,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    }
+  ],
+  "candidatos_blocklist": [
+    {
+      "canal": "Rádio Tupi",
+      "canal_id": "UCkkqXUQYUT0pC8RjZpfTZCQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "UBACAM",
+      "canal_id": "UCVQG1pBkRM4xlRrBmV65kUw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "TV Câmara Assis",
+      "canal_id": "UCiaSWZkB8dnQ1CFHC8hzLfw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Canal Ideal",
+      "canal_id": "UC8Z2vNeW326_b92SAxZv7aQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "The KO Cup",
+      "canal_id": "UCHLcaDrJQkesqdu2IpwGRoA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "OPUTheSportSweepLive 44",
+      "canal_id": "UCzrUxsS8964ic3qLgQTiO3w",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "TV Catolé",
+      "canal_id": "UCLX4DktASJnLeOCvEMP80Xw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "RSJGlobalSportLive 17",
+      "canal_id": "UCwhjHPjcSzJIy71bLm1yekQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "Lensa HD6",
+      "canal_id": "UCaiut-VgagUpL1rEruHTpjw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "MGBSportLineCourt",
+      "canal_id": "UCvV8SeHmoxGd-Ez1pQlP2Fg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "MFUTheSportTicker 58",
+      "canal_id": "UCQdD2TY8Q1rxWOIffF1CZAg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "SCWOfficialDesk",
+      "canal_id": "UC5sYKgk0OGHmWqnO-0OOxSg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "André Almeida",
+      "canal_id": "UC7TT0kvyNP74KLLgeEksJNg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "MUZGlobalSportLive 88",
+      "canal_id": "UCmVrbZEPFjyGBGvvJUFFveg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "LIORacetrackRecapsLive 96",
+      "canal_id": "UCTiJMm1PydIP9kWzl-XfRNg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "BCNFanDigest",
+      "canal_id": "UC0kfH1plupoWMt0UenGsK-w",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "BOKBeyondGames",
+      "canal_id": "UCavEsTWVbKi8VxFX0NMG-uQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "XRTMatchTimeCourt",
+      "canal_id": "UCq4GBDH1WjqvZJkrtnA5EJA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "Radio La Red AM 910",
+      "canal_id": "UCs1U5lRXvUJHn0CgXI6oXAw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Radio Continental AM 590",
+      "canal_id": "UC7fedBVCaVPhMNI_axwg69w",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Radio Marca Baleares",
+      "canal_id": "UCHSx3wCUhrasDqMq17MrD6w",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Cadena 3 Argentina",
+      "canal_id": "UCNxohbqfDp8YxW_Mji2XMHA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "KIYScoreShowcase",
+      "canal_id": "UCYbyViw2fk3NC7iGf_nkoMw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "UECSlamDunkStreamLive 63",
+      "canal_id": "UC-aGo1J2LlCEUDmkAad9g4A",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "PHFGameOnAirLive 52",
+      "canal_id": "UCxXs3Mz-_vK1L_pRBDAhgdg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "Gaúcha",
+      "canal_id": "UCRC3upGcj_decdPi7JXT7Bg",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Folha Política",
+      "canal_id": "UCYiM773ssvNMaBHvaWWeIoQ",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Euronews em Português",
+      "canal_id": "UCUmEPYxmnyQDeRUcFkslmQw",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Crónica TV",
+      "canal_id": "UCT7KFGv6s2a-rh2Jq8ZdM1g",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Telefe Noticias",
+      "canal_id": "UChxGASjdNEYHhVKpl667Huw",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Alerta",
+      "canal_id": "UCArPLoGddL8etAfWKgTSISw",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "MILENIO",
+      "canal_id": "UCFxHplbcoJK9m70c4VyTIxg",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "A24com",
+      "canal_id": "UCR9120YBAqMfntqgRTKmkjQ",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Multimedios Costa Rica",
+      "canal_id": "UCILU2ghO8GrOeB-zo93eYdA",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Brzxx ZODx",
+      "canal_id": "UC3FLt3_i0h0CqYPyEEU2JSQ",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "THESAHILMALIKYT ",
+      "canal_id": "UCRoUsUuGYc-91UMHxsnKgqg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "RB SHORYA ",
+      "canal_id": "UCIaC1jN1NLMPcAqAGA_9M-g",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Caso Cerrado",
+      "canal_id": "UCGbofRROopWrumVob5w61OA",
+      "score_reputacao": -50,
+      "rejeicoes": 2,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "TRANSMISSÃO AO VIVO CIDADE",
+      "canal_id": "UCak21Edmz9LDZ_3-bl3TNyA",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "DYBThePitchReportLive 61",
+      "canal_id": "UC6gUbqs1fNUFitx20c0YJTQ",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Descartado no crivo"
+    },
+    {
+      "canal": "Deportes y Entretenimiento ",
+      "canal_id": "UC7RmehbzpyuNT0ZZ73b2X9Q",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Descartado no crivo"
+    }
+  ]
+}

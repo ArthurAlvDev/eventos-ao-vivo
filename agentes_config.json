@@ -1,0 +1,23 @@
+{
+  "comentarios": "Configuração dos agentes conectados ao Radar de Futebol",
+  "agentes_habilitados": {
+    "agente_alertas_telegram_discord": {
+      "ativo": true,
+      "descricao": "Agente responsável por enviar alertas de partidas AO VIVO para canais do Telegram, Discord ou WhatsApp",
+      "tipo": "webhook",
+      "webhook_url": ""
+    },
+    "agente_monitor_qualidade": {
+      "ativo": true,
+      "descricao": "Agente que monitora estabilidade, status do player e queda de streams em tempo real",
+      "tipo": "script_local",
+      "comando": "python agentes/monitor_qualidade.py"
+    },
+    "agente_redes_sociais": {
+      "ativo": true,
+      "descricao": "Agente que formata posts com horário, confrontos e links das partidas do dia",
+      "tipo": "fila_mensagens",
+      "pasta_inbox": "agentes/inbox"
+    }
+  }
+}

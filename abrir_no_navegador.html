@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogos de Futebol Ao Vivo</title>
+  <style>
+    :root {
+      --bg-page: #020617;
+      --bg-main: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-surface-hover: #273549;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-red: #ef4444;
+      --accent-red-glow: rgba(239, 68, 68, 0.35);
+      --badge-bg: #1e1b4b;
+      --badge-text: #a5b4fc;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    /* Container do Popup Centralizado na Tela */
+    .extension-container {
+      width: 400px;
+      max-width: 100%;
+      height: 580px;
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    /* Cabeçalho */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent-red);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 var(--accent-red-glow);
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 var(--accent-red-glow);
+      }
+      70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+      }
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .match-counter {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    main {
+      padding: 14px 14px 20px;
+    }
+
+    .category-group {
+      margin-bottom: 18px;
+    }
+
+    .category-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      padding-left: 2px;
+    }
+
+    .category-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .match-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .match-link {
+      display: block;
+      text-decoration: none;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .match-link:hover {
+      background-color: var(--bg-surface-hover);
+      border-color: #475569;
+      transform: translateY(-1px);
+    }
+
+    .match-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .badge-league {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--badge-text);
+      background-color: var(--badge-bg);
+      border: 1px solid rgba(165, 180, 252, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .badge-live {
+      font-size: 9px;
+      font-weight: 800;
+      color: #fff;
+      background: var(--accent-red);
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .match-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .match-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .match-lang {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    .watch-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #f87171;
+    }
+
+    .watch-cta svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="extension-container">
+    <header>
+      <div class="brand">
+        <span class="live-dot"></span>
+        <h1>Jogos Ao Vivo</h1>
+      </div>
+      <span class="match-counter" id="counter">4 jogos</span>
+    </header>
+
+    <main id="matchesContent">
+      <!-- Categoria Profissional -->
+      <section class="category-group">
+        <h2 class="category-title">Profissional</h2>
+        <div class="match-list">
+          <a class="match-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+            <div class="match-meta">
+              <span class="badge-league">Campeonato Carioca</span>
+              <span class="badge-live">● AO VIVO</span>
+            </div>
+            <p class="match-title">Flamengo x Fluminense - Clássico Carioca Profissional</p>
+            <div class="match-footer">
+              <span class="match-lang">🗣 Português</span>
+              <span class="watch-cta">
+                <span>Assistir no YouTube</span>
+                <svg viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Categoria Sub-20 -->
+      <section class="category-group">
+        <h2 class="category-title">Sub-20</h2>
+        <div class="match-list">
+          <a class="match-link" href="https://www.youtube.com/watch?v=jfKfPfyJRdk" target="_blank" rel="noopener noreferrer">
+            <div class="match-meta">
+              <span class="badge-league">Campeonato Paulista Sub-20</span>
+              <span class="badge-live">● AO VIVO</span>
+            </div>
+            <p class="match-title">Corinthians x Palmeiras - Final Paulistão Sub-20 | Ao Vivo com Imagens</p>
+            <div class="match-footer">
+              <span class="match-lang">🗣 Português</span>
+              <span class="watch-cta">
+                <span>Assistir no YouTube</span>
+                <svg viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Categoria Feminino -->
+      <section class="category-group">
+        <h2 class="category-title">Feminino</h2>
+        <div class="match-list">
+          <a class="match-link" href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank" rel="noopener noreferrer">
+            <div class="match-meta">
+              <span class="badge-league">Brasileirão Feminino</span>
+              <span class="badge-live">● AO VIVO</span>
+            </div>
+            <p class="match-title">São Paulo x Ferroviária - Brasileirão Feminino A1</p>
+            <div class="match-footer">
+              <span class="match-lang">🗣 Português</span>
+              <span class="watch-cta">
+                <span>Assistir no YouTube</span>
+                <svg viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Categoria Várzea -->
+      <section class="category-group">
+        <h2 class="category-title">Várzea</h2>
+        <div class="match-list">
+          <a class="match-link" href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" rel="noopener noreferrer">
+            <div class="match-meta">
+              <span class="badge-league">Copa da Paz de Paraisópolis</span>
+              <span class="badge-live">● AO VIVO</span>
+            </div>
+            <p class="match-title">Unidos da Vila x Estrela do Norte - Copa da Paz de Várzea</p>
+            <div class="match-footer">
+              <span class="match-lang">🗣 Português</span>
+              <span class="watch-cta">
+                <span>Assistir no YouTube</span>
+                <svg viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

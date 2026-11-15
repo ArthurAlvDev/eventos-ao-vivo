@@ -1,12 +1,13 @@
 @echo off
 chcp 65001 > nul
-title Agente Buscador Continuo (Daemon)
+title Agente Continuo de Futebol (Web Scraping - Zero Keys)
 
-echo ========================================================
+echo ===================================================================
 echo   ⚽ AGENTE CONTÍNUO DE FUTEBOL AO VIVO ATIVO
-echo   Atualizando 'partidas.json' a cada 15 minutos.
-echo   (Deixe esta janela aberta minimizada)
-echo ========================================================
+echo   Status: Web Scraping - Zero Chaves de API
+echo   Atualizando 'partidas.json' a cada 15 minutos em segundo plano.
+echo   (Deixe esta janela minimizada)
+echo ===================================================================
 echo.
 
 python executar_continuo.py

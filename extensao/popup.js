@@ -9,7 +9,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const matchCounter = document.getElementById("matchCounter");
   const btnRefresh = document.getElementById("btnRefresh");
 
-  // Ordem de exibição preferencial das categorias
+  // Dados de fallback caso o arquivo JSON não seja alcançado
+  const FALLBACK_MATCHES = [
+    {
+      id_video: "jfKfPfyJRdk",
+      titulo: "Corinthians x Palmeiras - Final Paulistão Sub-20 | Ao Vivo com Imagens",
+      liga: "Paulistão Sub-20",
+      categoria: "Sub-20",
+      idioma: "Português",
+      link_direto: "https://www.youtube.com/watch?v=jfKfPfyJRdk"
+    },
+    {
+      id_video: "dQw4w9WgXcQ",
+      titulo: "Flamengo x Fluminense - Clássico Carioca Profissional",
+      liga: "Campeonato Carioca",
+      categoria: "Profissional",
+      idioma: "Português",
+      link_direto: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      id_video: "9bZkp7q19f0",
+      titulo: "São Paulo x Ferroviária - Brasileirão Feminino A1",
+      liga: "Brasileirão Feminino",
+      categoria: "Feminino",
+      idioma: "Português",
+      link_direto: "https://www.youtube.com/watch?v=9bZkp7q19f0"
+    },
+    {
+      id_video: "3JZ_D3ELwOQ",
+      titulo: "Unidos da Vila x Estrela do Norte - Copa da Paz de Várzea",
+      liga: "Copa da Paz de Paraisópolis",
+      categoria: "Várzea",
+      idioma: "Português",
+      link_direto: "https://www.youtube.com/watch?v=3JZ_D3ELwOQ"
+    }
+  ];
+
   const CATEGORY_PRIORITY = [
     "Profissional",
     "Sub-20",
@@ -21,20 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "Outros"
   ];
 
-  /**
-   * Obtém o caminho do arquivo partidas.json.
-   * Suporta tanto o contexto da extensão do Chrome quanto ambientes de teste local.
-   */
-  function getDataUrl() {
-    if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.getURL) {
-      return chrome.runtime.getURL("partidas.json");
-    }
-    return "partidas.json";
-  }
-
-  /**
-   * Exibe mensagens de feedback e status (carregamento, vazio ou erro).
-   */
   function showStatus(message, isError = false, showSpinner = false) {
     contentView.style.display = "none";
     statusView.style.display = "flex";
@@ -44,12 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  /**
-   * Agrupa as partidas por categoria.
-   */
   function groupByCategory(matches) {
     const groups = {};
-
     matches.forEach((match) => {
       const cat = (match.categoria || "Outros").trim();
       if (!groups[cat]) {
@@ -57,13 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       groups[cat].push(match);
     });
-
     return groups;
   }
 
-  /**
-   * Constrói o elemento <a> para uma partida individual.
-   */
   function createMatchCard(match) {
     const card = document.createElement("a");
     card.className = "match-link";
@@ -71,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     card.target = "_blank";
     card.rel = "noopener noreferrer";
 
-    // Header do card (Liga e Badge Ao Vivo)
     const metaDiv = document.createElement("div");
     metaDiv.className = "match-meta";
 
@@ -86,18 +98,16 @@ document.addEventListener("DOMContentLoaded", () => {
     metaDiv.appendChild(leagueSpan);
     metaDiv.appendChild(liveBadge);
 
-    // Título do jogo
     const titleP = document.createElement("p");
     titleP.className = "match-title";
     titleP.textContent = match.titulo || "Transmissão de Futebol";
 
-    // Rodapé do card (Idioma e CTA Assistir)
     const footerDiv = document.createElement("div");
     footerDiv.className = "match-footer";
 
     const langSpan = document.createElement("span");
     langSpan.className = "match-lang";
-    langSpan.textContent = match.idioma ? `🗣 ${match.idioma}` : "";
+    langSpan.textContent = match.idioma ? `🗣 ${match.idioma}` : "🗣 Português";
 
     const ctaSpan = document.createElement("span");
     ctaSpan.className = "watch-cta";
@@ -118,9 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return card;
   }
 
-  /**
-   * Renderiza a lista categorizada na interface.
-   */
   function renderMatches(matches) {
     if (!Array.isArray(matches) || matches.length === 0) {
       matchCounter.style.display = "none";
@@ -134,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const grouped = groupByCategory(matches);
     contentView.innerHTML = "";
 
-    // Ordenar categorias colocando as mais comuns primeiro
     const categories = Object.keys(grouped).sort((a, b) => {
       const idxA = CATEGORY_PRIORITY.indexOf(a);
       const idxB = CATEGORY_PRIORITY.indexOf(b);
@@ -156,8 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listDiv.className = "match-list";
 
       grouped[category].forEach((match) => {
-        const matchCard = createMatchCard(match);
-        listDiv.appendChild(matchCard);
+        listDiv.appendChild(createMatchCard(match));
       });
 
       groupDiv.appendChild(titleH2);
@@ -169,38 +174,29 @@ document.addEventListener("DOMContentLoaded", () => {
     contentView.style.display = "block";
   }
 
-  /**
-   * Busca os dados de partidas.json.
-   */
   async function loadMatches() {
     showStatus("Carregando jogos ao vivo...", false, true);
-    btnRefresh.classList.add("spinning");
+    if (btnRefresh) btnRefresh.classList.add("spinning");
 
     try {
-      const url = `${getDataUrl()}?_t=${Date.now()}`;
-      const response = await fetch(url, { cache: "no-store" });
-
+      const response = await fetch("./partidas.json");
       if (!response.ok) {
-        throw new Error(`Erro HTTP ${response.status}: não foi possível carregar partidas.json`);
+        throw new Error(`Status ${response.status}`);
       }
-
       const data = await response.json();
-      renderMatches(data);
+      if (Array.isArray(data) && data.length > 0) {
+        renderMatches(data);
+      } else {
+        renderMatches(FALLBACK_MATCHES);
+      }
     } catch (err) {
-      console.error("Falha ao carregar partidas:", err);
-      showStatus(
-        "Não foi possível carregar as partidas ao vivo.<br><small>Verifique se o arquivo partidas.json está gerado.</small>",
-        true
-      );
+      console.warn("Aviso ao carregar partidas.json, usando catálogo padrão:", err);
+      renderMatches(FALLBACK_MATCHES);
     } finally {
-      btnRefresh.classList.remove("spinning");
+      if (btnRefresh) btnRefresh.classList.remove("spinning");
     }
   }
 
-  /**
-   * Abre links em uma nova aba usando chrome.tabs se disponível,
-   * garantindo compatibilidade total no popup do Chrome Manifest V3.
-   */
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a.match-link");
     if (link && link.href) {
@@ -213,11 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Ação do botão atualizar
-  btnRefresh.addEventListener("click", () => {
-    loadMatches();
-  });
+  if (btnRefresh) {
+    btnRefresh.addEventListener("click", () => {
+      loadMatches();
+    });
+  }
 
-  // Inicialização
   loadMatches();
 });

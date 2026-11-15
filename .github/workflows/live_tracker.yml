@@ -1,10 +1,10 @@
-name: Buscador de Partidas de Futebol Ao Vivo
+name: Buscador de Futebol Ao Vivo (Web Scraping - Zero Keys)
 
 on:
   schedule:
-    # Executa a cada 20 minutos (ajuste conforme a necessidade e cota de API)
+    # Executa a cada 20 minutos
     - cron: '*/20 * * * *'
-  workflow_dispatch: # Permite disparo manual pelo painel de Actions do GitHub
+  workflow_dispatch: # Permite disparo manual com 1 clique no GitHub
 
 permissions:
   contents: write
@@ -28,10 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Executar Agente Buscador
-        env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Executar Agente Web Scraping (Zero Chaves)
         run: |
           python search_live_football.py --blocklist blocklist.txt --output partidas.json
 

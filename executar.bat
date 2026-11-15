@@ -1,28 +1,23 @@
 @echo off
 chcp 65001 > nul
-title Agente Buscador de Futebol Ao Vivo
+title Agente Buscador de Futebol Ao Vivo (Web Scraping - Zero Keys)
 
-echo ========================================================
-echo   ⚽ INICIANDO AGENTE BUSCADOR DE FUTEBOL AO VIVO
-echo ========================================================
+echo ===================================================================
+echo   ⚽ AGENTE BUSCADOR DE FUTEBOL AO VIVO NO YOUTUBE (WEB SCRAPING)
+echo   Status: 100%% LIVRE DE CHAVES DE API (Sem YouTube API, Sem Gemini)
+echo ===================================================================
 echo.
 
-if not exist .env (
-    echo [AVISO] Arquivo .env não encontrado. Criando modelo...
-    echo YOUTUBE_API_KEY=> .env
-    echo GEMINI_API_KEY=> .env
-)
-
-echo [1/2] Verificando dependências Python...
+echo [1/2] Verificando biblioteca 'requests'...
 python -m pip install -q -r requirements.txt
 
 echo.
-echo [2/2] Executando busca de transmissões ao vivo...
+echo [2/2] Buscando partidas reais ao vivo no YouTube...
 echo.
 python search_live_football.py
 
 echo.
-echo ========================================================
+echo ===================================================================
 echo   Processo concluído! Verifique o arquivo 'partidas.json'.
-echo ========================================================
+echo ===================================================================
 pause

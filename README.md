@@ -1,105 +1,46 @@
-# ⚽ Futebol Ao Vivo - SPA de Alta Performance
+# ⚽ Buscador de Futebol Ao Vivo - Infraestrutura CI/CD
 
-Aplicação SPA minimalista desenvolvida em **React 18 + Vite**, projetada com foco em **performance extrema**, **Core Web Vitals perfeitos** e **custo zero permanente** de hospedagem na [Vercel](https://vercel.com).
-
----
-
-## ⚡ Destaques de Performance & Engenharia
-
-- **Peso-Pena (~52 KB gzip total)**: Sem bibliotecas de UI pesadas (Tailwind/Material-UI/Chakra dispensadas). Estilização 100% em **CSS puro moderno** com Custom Properties (Variáveis CSS) e Dark Theme esportivo nativo.
-- **Lazy Loading Real de Embeds**:
-  - `permite_embed: true`: Iframe carregado com `loading="lazy"`, domínio seguro `youtube-nocookie.com` e container com `aspect-ratio: 16 / 9` para eliminar **CLS (Cumulative Layout Shift)**.
-  - `permite_embed: false`: Botão de alto impacto e conversão **"Abrir no YouTube"**, economizando 100% de CPU/RAM em jogos sem permissão de embed.
-- **Resource Hints**: `preconnect` e `dns-prefetch` para os domínios do YouTube diretamente no `index.html`.
-- **Zero Processamento em Servidor**: Renderização 100% client-side (SPA), estática, servida direto das CDNs globais da Vercel.
+Pipeline DevOps 100% automatizado no GitHub Actions para catalogar transmissões de futebol ao vivo e atualizar o arquivo `partidas.json` no repositório `main`.
 
 ---
 
-## 📁 Estrutura de Componentes
+## ⏰ Agendamento Automático (Horário de Brasília)
 
-```text
-├── public/
-│   ├── favicon.svg          # Favicon vetorial leve
-│   └── partidas.json        # Mock local de demonstração e fallback
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx           # Topbar com indicador ao vivo e botão de atualização
-│   │   ├── CategorySection.jsx  # Agrupamento e cabeçalho por Categoria
-│   │   ├── MatchCard.jsx        # Card da partida (dados, status pulsante, canal)
-│   │   ├── VideoPlayer.jsx      # Iframe lazy load ou botão "Abrir no YouTube"
-│   │   └── MatchSkeleton.jsx    # Skeletons CSS sem layout shift durante fetch
-│   ├── constants/
-│   │   └── config.js            # URL do partidas.json e intervalos de polling
-│   ├── hooks/
-│   │   └── usePartidas.js       # Hook customizado de fetch com fallback resiliente
-│   ├── styles/
-│   │   └── index.css            # CSS puro modular e responsivo (Mobile-first)
-│   ├── App.jsx                  # Orquestrador, busca em tempo real e categorias
-│   └── main.jsx                 # Entrypoint React
-├── vercel.json              # Configurações de cache e rotas SPA na Vercel
-├── vite.config.js           # Build ultra-otimizado com manualChunks
-└── package.json
-```
+O workflow [`.github/workflows/buscador.yml`](.github/workflows/buscador.yml) executa nos três horários programados:
+
+| Horário Brasília (BRT) | Horário UTC | Expressão Cron |
+| :--- | :--- | :--- |
+| **08:00** | 11:00 UTC | `0 11 * * *` |
+| **14:00** | 17:00 UTC | `0 17 * * *` |
+| **19:00** | 22:00 UTC | `0 22 * * *` |
+
+> Configuração combinada no Actions: `0 11,17,22 * * *`
 
 ---
 
-## 📄 Contrato de Dados (`partidas.json`)
+## 🚀 Como Operar 100% pelo GitHub (Sem Abrir Código)
 
-O app aceita tanto um arquivo hospedado em um bucket S3, Cloudflare R2, GitHub Raw ou Gist público. Exemplo de item:
+### 1. Forçar Atualização Imediata (Manual)
+1. Acesse seu repositório no GitHub.
+2. Vá até a aba **Actions**.
+3. Na lista à esquerda, clique em **Buscador de Futebol Ao Vivo**.
+4. Clique no botão **Run workflow** à direita e confirme.
+5. Em cerca de 1 a 2 minutos, o script terminará e o arquivo `partidas.json` estará atualizado na branch `main`.
 
-```json
-[
-  {
-    "id": "match-01",
-    "titulo": "Flamengo x Fluminense",
-    "detalhes": "Clássico Fla-Flu - Rodada 30",
-    "campeonato": "Brasileirão Série A",
-    "categoria": "Brasileirão Série A",
-    "horario": "16:00",
-    "status": "AO VIVO",
-    "placar": "2 x 1",
-    "canal": "CazéTV",
-    "youtube_id": "jfKfPfyJRdk",
-    "url": "https://www.youtube.com/watch?v=jfKfPfyJRdk",
-    "permite_embed": true
-  },
-  {
-    "id": "match-02",
-    "titulo": "Palmeiras x São Paulo",
-    "detalhes": "Choque-Rei Decisivo",
-    "campeonato": "Brasileirão Série A",
-    "categoria": "Brasileirão Série A",
-    "horario": "16:00",
-    "status": "AO VIVO",
-    "placar": "0 x 0",
-    "canal": "Premiere / Globo Esporte",
-    "youtube_id": "M7lc1UVf-VE",
-    "url": "https://www.youtube.com/watch?v=M7lc1UVf-VE",
-    "permite_embed": false
-  }
-]
-```
+### 2. Bloquear Canal Fake Persistente
+1. No repositório, abra o arquivo [`blocklist.txt`](blocklist.txt).
+2. Clique no ícone de **Lápis ✏️ (Edit this file)** no canto superior direito.
+3. Adicione o ID do canal fake em uma nova linha (ex: `UC_x5XG1OV2P6uZZ5FSM9Ttw`).
+4. Clique em **Commit changes...** e confirme na branch `main`.
+5. A partir desse momento, o scraper nunca mais listará transmissões desse canal.
 
 ---
 
-## 🚀 Como Executar
+## ⚙️ Permissões Necessárias no Repositório
 
-### 1. Rodar localmente
-```bash
-npm install
-npm run dev
-```
-
-### 2. Gerar build de produção
-```bash
-npm run build
-npm run preview
-```
-
-### 3. Deploy na Vercel
-1. Suba este repositório no GitHub.
-2. Acesse [vercel.com/new](https://vercel.com/new) e importe o repositório.
-3. A Vercel detectará o framework **Vite** automaticamente.
-4. Adicione a variável de ambiente (opcional):
-   - `VITE_PARTIDAS_URL`: Link da sua URL pública externa do `partidas.json`.
-5. Clique em **Deploy**. Zero custo e deploy contínuo em cada `git push`.
+Para o GitHub Actions conseguir salvar o `partidas.json` automaticamente:
+1. No repositório, vá em **Settings** > **Actions** > **General**.
+2. Role até **Workflow permissions** e marque:
+   - ✅ **Read and write permissions**.
+   - ✅ **Allow GitHub Actions to create and approve pull requests**.
+3. Clique em **Save**.

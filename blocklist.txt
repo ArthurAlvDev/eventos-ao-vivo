@@ -1,7 +1,25 @@
 # Lista de Não (Blocklist de Canais do YouTube)
-# Adicione um ID de canal por linha (ex: UCxxxxxxxxxxxxxxxxx).
+# Bloqueio por @handle, por ID (UC...) ou por Nome de Canal
 # Linhas iniciadas com '#' ou em branco são ignoradas.
 
-# Exemplos de canais fakes conhecidos / canais de gameplay / rádios estáticas:
-# UC_x5XG1OV2P6uZZ5FSM9Ttw
-# UC1234567890abcdefghijklm
+# Canais solicitados para bloqueio:
+@FULLMATCHSPORTS11
+@Sr.AntonyOficial
+@blinksportsoff
+@fryirish
+@indianewssportsofficial
+@FootballLiveNepal
+
+# Nomes normalizados para bloqueio direto
+Full Match Sports
+Sr. Antony Oficial
+Blink Sports Off
+Blink Sports
+fryirish
+India News Sports
+Football Live Nepal
+
+# Canais de Gameplay e Rádio conhecidos
+Gameplayrj
+EA SPORTS FC
+eFootball Official
