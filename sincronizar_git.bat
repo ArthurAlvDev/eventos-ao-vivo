@@ -5,10 +5,10 @@ echo   Enviando alteracoes para o GitHub
 echo ========================================================
 echo.
 
-git add .
-git commit -m "feat(devops): infraestrutura de CI/CD e automacao via telegram"
+git add -A
+git commit -m "feat: atualizacao do buscador de futebol e partidas"
 git branch -M main
-git push origin main
+git push -u origin main
 
 echo.
 echo ========================================================
