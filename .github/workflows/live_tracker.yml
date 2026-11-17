@@ -1,9 +1,7 @@
 name: Buscador de Futebol Ao Vivo (Web Scraping - Zero Keys)
 
 on:
-  schedule:
-    # Executa a cada 20 minutos
-    - cron: '*/20 * * * *'
+  # Agendamento automático desativado (migrado para rotina local do OpenBot)
   workflow_dispatch: # Permite disparo manual com 1 clique no GitHub
 
 permissions:
