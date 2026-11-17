@@ -1,11 +1,11 @@
 {
-  "atualizado_em": "2026-11-17 07:29:05",
+  "atualizado_em": "2026-11-17 07:33:56",
   "candidatos_aprovacao_direta_vip": [
     {
       "canal": "Confederação Brasileira de Futebol de Salão (CBFS)",
       "canal_id": "UCQm8rQBRn_qRHMOWdnYtA_w",
-      "score_reputacao": 3270,
-      "jogos_aprovados": 109,
+      "score_reputacao": 3930,
+      "jogos_aprovados": 131,
       "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
     },
     {
@@ -79,6 +79,13 @@
       "score_reputacao": -100,
       "rejeicoes": 2,
       "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo | -40 Canal com perfil de spam/clickbait"
+    },
+    {
+      "canal": "BTB SPORTS OFICIAL",
+      "canal_id": "UCvsPgR_Dfe8tXWzSVteasqw",
+      "score_reputacao": -90,
+      "rejeicoes": 2,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo | -60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
     },
     {
       "canal": "Voz do Esporte",
@@ -298,6 +305,13 @@
       "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
     },
     {
+      "canal": "Livesport",
+      "canal_id": "UCVioK3pzEz5JF4Nkm3xjdXA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
       "canal": "Gaúcha",
       "canal_id": "UCRC3upGcj_decdPi7JXT7Bg",
       "score_reputacao": -75,
@@ -368,6 +382,13 @@
       "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
     },
     {
+      "canal": "Confederação Brasileira de Futebol",
+      "canal_id": "UCdQuDaRww5NkKpQQ1BJBWww",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB | -25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB"
+    },
+    {
       "canal": "Brzxx ZODx",
       "canal_id": "UC3FLt3_i0h0CqYPyEEU2JSQ",
       "score_reputacao": -60,
@@ -431,11 +452,11 @@
       "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
     },
     {
-      "canal": "Confederação Brasileira de Futebol",
-      "canal_id": "UCdQuDaRww5NkKpQQ1BJBWww",
-      "score_reputacao": -50,
-      "rejeicoes": 2,
-      "motivo": "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB | -25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB"
+      "canal": "Jornalismo Novabrasil",
+      "canal_id": "UCO9Di4cxrjEeVj13Qs_NIbA",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
     },
     {
       "canal": "TRANSMISSÃO AO VIVO CIDADE",
@@ -466,11 +487,11 @@
       "motivo": "-40 Canal com perfil de spam/clickbait"
     },
     {
-      "canal": "Livesport",
-      "canal_id": "UCVioK3pzEz5JF4Nkm3xjdXA",
+      "canal": "O TEMPO",
+      "canal_id": "UCx7Ohl0Ln516T5pu5M8_SMA",
       "score_reputacao": -40,
       "rejeicoes": 1,
-      "motivo": "-40 Descartado no crivo"
+      "motivo": "-40 Verificado via Guia de Transmissão"
     }
   ]
 }

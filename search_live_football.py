@@ -219,7 +219,7 @@ class SistemaPontuacaoPartida:
 
     # Competições reconhecidas (+30 pontos)
     REGEX_COMPETICAO = re.compile(
-        r"\b(?:gauch[aã]o|brasileir[aã]o|paulist[aã]o|carioc[aã]o|mineir[aã]o|nordest[aã]o|catarinense|paranaense|goiano|cearense|pernambucano|baiano|copinha|copa\s*do\s*brasil|copa|cup|campeonato|championship|ta[cç]a|trophy|torneo|liga|league|superliga|premiership|division|divis[aã]o|s[eé]rie\s*[abcd]|serie|série|libertadores|sul-?americana|sudamericana|europa\s*league|conference\s*league|champions\s*league|champions|lnf)\b",
+        r"\b(?:nations\s*league|liga\s*das\s*na[cç][oõ]es|gauch[aã]o|brasileir[aã]o|paulist[aã]o|carioc[aã]o|mineir[aã]o|nordest[aã]o|catarinense|paranaense|goiano|cearense|pernambucano|baiano|copinha|copa\s*do\s*brasil|copa|cup|campeonato|championship|ta[cç]a|trophy|torneo|liga|superliga|premiership|division|divis[aã]o|s[eé]rie\s*[abcd]|serie|série|libertadores|sul-?americana|sudamericana|europa\s*league|conference\s*league|champions\s*league|champions|league|lnf)\b",
         re.IGNORECASE,
     )
 
@@ -230,13 +230,13 @@ class SistemaPontuacaoPartida:
     )
 
     # Indicadores negativos
-    REGEX_DEBATE_PODCAST = re.compile(r"\b(?:debate|podcast|mesa\s*redonda|bate-pronto|papo\s*reto|resenha|de\s*placa|melhor\s*futebol\s*do\s*mundo|tnt\s*sports\s*fc|esquenta|repercuss[aã]o|giro\s*da\s*rodada|live\s*da\s*rodada|programa|sportscenter|linha\s*de\s*passe|f90|bola\s*da\s*vez|espn\s*fc|b\s*de\s*bola|resenha\s*espn|futebol\s*no\s*mundo|forma[cç][aã]o\s*ideal|demite|quem\s*vence|palpite|escala[cç][aã]o|boletim|plant[aã]o|opini[aã]o|pol[eê]mica|contrata[cç][aã]o)\b", re.IGNORECASE)  # -40
+    REGEX_DEBATE_PODCAST = re.compile(r"\b(?:debate|podcast|mesa\s*redonda|bate-pronto|papo\s*reto|resenha|de\s*placa|melhor\s*futebol\s*do\s*mundo|tnt\s*sports\s*fc|geral\s*caz[eé]tv|den[ií]lson\s*show|tudo\s*sobre|esquenta|repercuss[aã]o|giro\s*da\s*rodada|live\s*da\s*rodada|programa|sportscenter|linha\s*de\s*passe|f90|bola\s*da\s*vez|espn\s*fc|b\s*de\s*bola|resenha\s*espn|futebol\s*no\s*mundo|forma[cç][aã]o\s*ideal|demite|quem\s*vence|palpite|escala[cç][aã]o|boletim|plant[aã]o|opini[aã]o|pol[eê]mica|contrata[cç][aã]o)\b", re.IGNORECASE)  # -40
     REGEX_ENTREVISTA_NOTICIAS = re.compile(r"\b(?:entrevista|not[ií]cias|noticia|an[aá]lise|react|rea[cç][aã]o|coletiva|bastidores|mercado\s*da\s*bola|vai\s*e\s*vem|impasse|desespero|declara[cç][aã]o)\b", re.IGNORECASE)  # -30
     REGEX_TREINO = re.compile(r"\b(?:treino|treinamento|training|aquecimento|warm-up|practice|practice\s*session|session)\b", re.IGNORECASE)  # -35
     REGEX_SCORE_RADIO = re.compile(r"\b(?:score|live\s*score|score\s*update|live\s*updates?|live\s*commentary|watch\s*along|watchalong|play\s*by\s*play|minuto\s*a\s*minuto|placar|acontecimentos|r[aá]dio|radio|narra[cç][aã]o\s*(?:ao\s*vivo|sem\s*imagens?)?|em\s*tempo\s*real|tempo\s*real|sem\s*imagens?|somente\s*[aá]udio|s[oó]\s*[aá]udio|web\s*r[aá]dio)\b", re.IGNORECASE)  # -40
     REGEX_JOGO_ANTIGO = re.compile(r"\b(?:jogo\s*antigo|full\s*match|replay|reprise|hist[oó]rico|gols\s*da\s*rodada|melhores\s*momentos|highlights)\b", re.IGNORECASE)  # -40
     REGEX_VIDEOGAME = re.compile(r"\b(?:fifa|fifa\s*\d+|eafc|ea\s*sports\s*fc|pes|pes\s*\d+|efootball|playstation|ps5|ps4|xbox|pc\s*gameplay|gameplay|simula[cç][aã]o|master\s*league|modo\s*carreira)\b", re.IGNORECASE)  # -50
-    REGEX_PRE_POS_JOGO = re.compile(r"\b(?:pr[eé]-jogo|pre\s*jogo|p[oó]s-jogo|pos\s*jogo|aquecimento)\b", re.IGNORECASE)  # -60
+    REGEX_PRE_POS_JOGO = re.compile(r"\b(?:pr[eé]-jogo|pre\s*jogo|p[oó]s-jogo|pos\s*jogo|logo\s*ap[oó]s|aquecimento)\b", re.IGNORECASE)  # -60
     REGEX_OUTROS_ESPORTES = re.compile(r"\b(?:surfe?|surf|isa\s*games|na\s*[aá]gua|jogos\s*ol[ií]mpicos|olimp[ií]adas?|gin[aá]stica|nata[cç][aã]o|jud[oô]|atletismo|nfl|cbfa|super\s*bowl|futebol\s*americano|nhl|h[oó]quei|stanley\s*cup|nba|nbb|novo\s*basquete|euroliga\s*de\s*basquete|superliga\s*(?:feminina|masculina)|v[oô]leibol|t[eê]nis\s*de\s*mesa|wtt|jiu-?jitsu|skate|sls|esgrima|corrida\s*de\s*carros|ladeira\s*abaixo|basquete|basketball|v[oô]lei|volleyball|f[oó]rmula\s*1|f1|t[eê]nis|tennis|ufc|mma|boxe|boxing|handebol|motogp|esports|valorant|cs2|fortnite|free\s*fire|cricket|hockey|rugby|high\s*school\s*football|football\s*high\s*school|high\s*school|american\s*football)\b", re.IGNORECASE)
 
     # Identificador de Confronto: Time A x Time B / Time A vs Time B
