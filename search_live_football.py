@@ -17,11 +17,13 @@ Metodologia Oficial com Crivo de Pontuação e Verificação em Sites Gabaritado
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 import json
 import logging
 import re
 import sys
+import threading
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
@@ -134,19 +136,23 @@ class VerificadorSitesGabaritados:
         "desimpedidos", "wsl", "conmebol", "uefa"
     ]
 
-    # Grandes clubes de elite (cujos jogos em campeonatos de ponta são restritos e NUNCA passam em canais amadores)
+    # Grandes clubes de elite e seleções principais (cujos jogos em campeonatos de ponta são restritos e NUNCA passam em canais amadores)
     GRANDES_CLUBES_ELITE = [
         "flamengo", "palmeiras", "são paulo", "corinthians", "santos",
         "grêmio", "gremio", "internacional", "atlético-mg", "atletico-mg",
         "cruzeiro", "vasco", "botafogo", "fluminense", "bahia", "fortaleza",
         "athletico-pr", "real madrid", "barcelona", "manchester city",
-        "liverpool", "arsenal", "chelsea", "bayern", "psg", "juventus"
+        "liverpool", "arsenal", "chelsea", "bayern", "psg", "juventus",
+        "brasil", "brazil", "seleção brasileira", "argentina", "frança", "france",
+        "espanha", "spain", "inglaterra", "england", "alemanha", "germany",
+        "portugal", "itália", "italy", "uruguai", "uruguay", "colômbia", "holanda"
     ]
 
     # Competições com direitos fechados (Globo/Premiere/ESPN/etc.)
     COMPETICOES_ELITE = [
         r"brasileir[aã]o\s*s[eé]rie\s*a", r"copa\s*do\s*brasil", r"libertadores",
-        r"premier\s*league", r"la\s*liga", r"serie\s*a\s*italiana", r"champions\s*league"
+        r"premier\s*league", r"la\s*liga", r"serie\s*a\s*italiana", r"champions\s*league",
+        r"eliminat[oó]rias", r"copa\s*do\s*mundo", r"nations\s*league", r"amistoso\s*internacional"
     ]
 
     def verificar_canal_gabaritado(
@@ -200,10 +206,9 @@ class VerificadorSitesGabaritados:
         return True, "Verificado via Guia de Transmissão"
 
     def _eh_canal_clickbait_generico(self, canal_nome: str) -> bool:
-        """Detecta canais fakes com nomes de gamers ou sequências de letras aleatórias."""
-        # Nomes com 'gaming', 'zod', 'yt', 'shorya', 'gameplay', etc.
+        """Detecta canais fakes com nomes de gamers, placares ou sequências aleatórias."""
         padroes_clickbait = [
-            r"\b(?:yt|gaming|gamer|zod|sahil|shorya|cortes|c@rtes)\b",
+            r"\b(?:yt|gaming|gamer|zod|sahil|shorya|cortes|c@rtes|blink|updates?|score|full\s*match|live\s*streaming|nepal|fry\s*irish|guardian|r[aá]dio|taco|secta|futbolera|casaca)\b",
             r"^[a-z]{4,}\s*[a-z]{3,}\s*yt$",
         ]
         return any(re.search(p, canal_nome, re.IGNORECASE) for p in padroes_clickbait)
@@ -225,10 +230,10 @@ class SistemaPontuacaoPartida:
     )
 
     # Indicadores negativos
-    REGEX_DEBATE_PODCAST = re.compile(r"\b(?:debate|podcast|mesa\s*redonda|bate-pronto|papo\s*reto|resenha|de\s*placa|melhor\s*futebol\s*do\s*mundo|tnt\s*sports\s*fc|esquenta|repercuss[aã]o|giro\s*da\s*rodada|live\s*da\s*rodada|programa|sportscenter|linha\s*de\s*passe|f90|bola\s*da\s*vez|espn\s*fc|b\s*de\s*bola|resenha\s*espn|futebol\s*no\s*mundo)\b", re.IGNORECASE)  # -40
+    REGEX_DEBATE_PODCAST = re.compile(r"\b(?:debate|podcast|mesa\s*redonda|bate-pronto|papo\s*reto|resenha|de\s*placa|melhor\s*futebol\s*do\s*mundo|tnt\s*sports\s*fc|esquenta|repercuss[aã]o|giro\s*da\s*rodada|live\s*da\s*rodada|programa|sportscenter|linha\s*de\s*passe|f90|bola\s*da\s*vez|espn\s*fc|b\s*de\s*bola|resenha\s*espn|futebol\s*no\s*mundo|forma[cç][aã]o\s*ideal|demite|quem\s*vence|palpite|escala[cç][aã]o|boletim|plant[aã]o|opini[aã]o|pol[eê]mica|contrata[cç][aã]o)\b", re.IGNORECASE)  # -40
     REGEX_ENTREVISTA_NOTICIAS = re.compile(r"\b(?:entrevista|not[ií]cias|noticia|an[aá]lise|react|rea[cç][aã]o|coletiva|bastidores|mercado\s*da\s*bola|vai\s*e\s*vem|impasse|desespero|declara[cç][aã]o)\b", re.IGNORECASE)  # -30
     REGEX_TREINO = re.compile(r"\b(?:treino|treinamento|training|aquecimento|warm-up|practice|practice\s*session|session)\b", re.IGNORECASE)  # -35
-    REGEX_SCORE_RADIO = re.compile(r"\b(?:score|placar|acontecimentos|r[aá]dio|radio|narra[cç][aã]o\s*(?:ao\s*vivo|sem\s*imagens?)?|em\s*tempo\s*real|tempo\s*real|sem\s*imagens?|somente\s*[aá]udio|s[oó]\s*[aá]udio|web\s*r[aá]dio)\b", re.IGNORECASE)  # -40
+    REGEX_SCORE_RADIO = re.compile(r"\b(?:score|live\s*score|score\s*update|live\s*updates?|live\s*commentary|watch\s*along|watchalong|play\s*by\s*play|minuto\s*a\s*minuto|placar|acontecimentos|r[aá]dio|radio|narra[cç][aã]o\s*(?:ao\s*vivo|sem\s*imagens?)?|em\s*tempo\s*real|tempo\s*real|sem\s*imagens?|somente\s*[aá]udio|s[oó]\s*[aá]udio|web\s*r[aá]dio)\b", re.IGNORECASE)  # -40
     REGEX_JOGO_ANTIGO = re.compile(r"\b(?:jogo\s*antigo|full\s*match|replay|reprise|hist[oó]rico|gols\s*da\s*rodada|melhores\s*momentos|highlights)\b", re.IGNORECASE)  # -40
     REGEX_VIDEOGAME = re.compile(r"\b(?:fifa|fifa\s*\d+|eafc|ea\s*sports\s*fc|pes|pes\s*\d+|efootball|playstation|ps5|ps4|xbox|pc\s*gameplay|gameplay|simula[cç][aã]o|master\s*league|modo\s*carreira)\b", re.IGNORECASE)  # -50
     REGEX_PRE_POS_JOGO = re.compile(r"\b(?:pr[eé]-jogo|pre\s*jogo|p[oó]s-jogo|pos\s*jogo|aquecimento)\b", re.IGNORECASE)  # -60
@@ -370,7 +375,14 @@ class SistemaPontuacaoPartida:
             or self.REGEX_TREINO.search(texto_completo)
         )
 
-        if eh_canal_vip and not eh_programa_nao_evento:
+        tem_sinal_evento_vip = bool(
+            (time1_valido and time2_valido)
+            or self.REGEX_COMPETICAO.search(titulo)
+            or outro_esporte_match
+            or re.search(r"\bcom\s*imagens?\b", texto_completo)
+        )
+
+        if eh_canal_vip and not eh_programa_nao_evento and not eh_infracao_grave and tem_sinal_evento_vip:
             aprovado_gabaritado = True
             fonte_confirmacao = f"Aprovação Direta (Canal VIP)"
             pontos = max(pontos, 100)
@@ -385,8 +397,10 @@ class SistemaPontuacaoPartida:
                 if "direitos restritos" in fonte_confirmacao.lower():
                     eh_pirataria_elite = True
 
-            # Classificação Final
-            if pontos >= 60 and aprovado_gabaritado:
+            # Classificação Final (infrações graves como placar/rádio/videogame/treino nunca viram JOGO)
+            if eh_infracao_grave or eh_programa_nao_evento:
+                classificacao = "IGNORAR"
+            elif pontos >= 60 and aprovado_gabaritado:
                 classificacao = "JOGO"
             elif pontos >= 30 and aprovado_gabaritado:
                 classificacao = "POSSIVEL_JOGO"
@@ -480,8 +494,15 @@ class YouTubeWebScraper:
     }
 
     def __init__(self) -> None:
-        self.session = requests.Session()
-        self.session.headers.update(self.HEADERS)
+        self._thread_local = threading.local()
+
+    @property
+    def session(self) -> requests.Session:
+        if not hasattr(self._thread_local, "session"):
+            s = requests.Session()
+            s.headers.update(self.HEADERS)
+            self._thread_local.session = s
+        return self._thread_local.session
 
     def buscar_transmissoes(self, query: str, apenas_ao_vivo: bool = False) -> List[Dict[str, Any]]:
         payload = {
@@ -849,40 +870,67 @@ class FootballScrapingPipeline:
         self.reputacao.sincronizar_listas_base(vips_nomes, self.blocklist.blocked_items)
 
         logger.info("Monitorando %d canal(is) cadastrado(s) (%d VIPs com aprovação direta)...", len(canais), len(vips_nomes))
-        for handle, nome_canal, flag in canais:
-            encontrados = self.scraper.buscar_streams_canal(handle, nome_canal)
-            logger.info("  📺 [%s] %s (%s): %d live(s)/agendamento(s)", flag, nome_canal, handle, len(encontrados))
-            for it in encontrados:
-                vid = it["video_id"]
-                it["flag_canal"] = flag
-                if vid not in candidatos:
-                    candidatos[vid] = it
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            fut_canais = {
+                executor.submit(self.scraper.buscar_streams_canal, handle, nome_canal): (handle, nome_canal, flag)
+                for handle, nome_canal, flag in canais
+            }
+            for fut in as_completed(fut_canais):
+                handle, nome_canal, flag = fut_canais[fut]
+                try:
+                    encontrados = fut.result()
+                except Exception as exc:
+                    logger.warning("Falha ao buscar canal %s: %s", nome_canal, exc)
+                    encontrados = []
+                logger.info("  📺 [%s] %s (%s): %d live(s)/agendamento(s)", flag, nome_canal, handle, len(encontrados))
+                for it in encontrados:
+                    vid = it["video_id"]
+                    it["flag_canal"] = flag
+                    if vid not in candidatos:
+                        candidatos[vid] = it
 
-        # 2. Coleta global ao vivo (para descobrir torneios em outros canais)
-        for q in self.QUERIES_AO_VIVO:
-            for it in self.scraper.buscar_transmissoes(q, apenas_ao_vivo=True):
-                vid = it["video_id"]
-                if vid not in candidatos:
-                    it["status"] = "ao_vivo"
-                    it["flag_canal"] = "DESCOBERTA"
-                    candidatos[vid] = it
+            fut_live = {
+                executor.submit(self.scraper.buscar_transmissoes, q, True): q
+                for q in self.QUERIES_AO_VIVO
+            }
+            for fut in as_completed(fut_live):
+                try:
+                    for it in fut.result():
+                        vid = it["video_id"]
+                        if vid not in candidatos:
+                            it["status"] = "ao_vivo"
+                            it["flag_canal"] = "DESCOBERTA"
+                            candidatos[vid] = it
+                except Exception as exc:
+                    logger.warning("Falha em busca ao vivo: %s", exc)
 
-        # 3. Coleta global agendadas
-        for q in self.QUERIES_AGENDADAS:
-            for it in self.scraper.buscar_transmissoes(q, apenas_ao_vivo=False):
-                vid = it["video_id"]
-                if vid not in candidatos and it["status"] in ("agendado", "ao_vivo"):
-                    it["flag_canal"] = "DESCOBERTA"
-                    candidatos[vid] = it
+            fut_sched = {
+                executor.submit(self.scraper.buscar_transmissoes, q, False): q
+                for q in self.QUERIES_AGENDADAS
+            }
+            for fut in as_completed(fut_sched):
+                try:
+                    for it in fut.result():
+                        vid = it["video_id"]
+                        if vid not in candidatos and it["status"] in ("agendado", "ao_vivo"):
+                            it["flag_canal"] = "DESCOBERTA"
+                            candidatos[vid] = it
+                except Exception as exc:
+                    logger.warning("Falha em busca agendada: %s", exc)
 
         logger.info("Total de transmissões brutas coletadas: %d", len(candidatos))
-        partidas_confirmadas: List[PartidaAoVivo] = []
+        aprovados_preliminares: List[Tuple[str, Dict[str, Any], int, Dict[str, Any], str]] = []
+        agora_ts = int(datetime.now().timestamp())
 
         for vid, item in candidatos.items():
             cid = item["canal_id"]
             canal_nome = item["canal_nome"]
             titulo = item["titulo"]
             descricao = item["descricao"]
+
+            if item["status"] == "agendado" and item["timestamp_inicio"] > 0 and item["timestamp_inicio"] < agora_ts - 4 * 3600:
+                logger.info("⏳ Descartado (agendamento expirado): %s", titulo)
+                continue
 
             flag_canal = item.get("flag_canal", "DESCOBERTA")
             if canal_nome.lower().strip() in vips_nomes_lower:
@@ -925,7 +973,11 @@ class FootballScrapingPipeline:
                 )
                 continue
 
-            # Passo 3: Detalhes exatos (Horário local e Embed)
+            aprovados_preliminares.append((vid, item, pontos, dados, flag_canal))
+
+        # Passo 3: Detalhes exatos (Horário local e Embed) em paralelo
+        def _enriquecer(entry: Tuple[str, Dict[str, Any], int, Dict[str, Any], str]) -> Optional[PartidaAoVivo]:
+            vid, item, pontos, dados, flag_canal = entry
             permite_embed = None
             if item["status"] == "agendado" and item["timestamp_inicio"] == 0:
                 ts, horario_exato, embed_player = self.scraper.obter_detalhes_live(vid)
@@ -935,13 +987,16 @@ class FootballScrapingPipeline:
                     item["horario"] = horario_exato
                 permite_embed = embed_player
 
+            if item["status"] == "agendado" and item["timestamp_inicio"] > 0 and item["timestamp_inicio"] < agora_ts - 4 * 3600:
+                return None
+
             if permite_embed is None:
                 permite_embed = self.scraper.verificar_permite_embed(vid)
 
-            partida = PartidaAoVivo(
+            return PartidaAoVivo(
                 id_video=vid,
-                titulo=titulo,
-                canal=canal_nome,
+                titulo=item["titulo"],
+                canal=item["canal_nome"],
                 liga=dados["liga"],
                 modalidade=dados["modalidade"],
                 categoria=dados["categoria"],
@@ -958,17 +1013,22 @@ class FootballScrapingPipeline:
                 fonte_confirmacao=dados["fonte_confirmacao"],
                 flag_canal=flag_canal,
             )
-            partidas_confirmadas.append(partida)
-            logger.info(
-                "✅ [%s] (+%d pts) [%s | %s]: %s (Canal: %s | Fonte: %s)",
-                flag_canal,
-                pontos,
-                partida.modalidade,
-                partida.categoria,
-                partida.titulo,
-                partida.canal,
-                partida.fonte_confirmacao,
-            )
+
+        partidas_confirmadas: List[PartidaAoVivo] = []
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            for partida in executor.map(_enriquecer, aprovados_preliminares):
+                if partida is not None:
+                    partidas_confirmadas.append(partida)
+                    logger.info(
+                        "✅ [%s] (+%d pts) [%s | %s]: %s (Canal: %s | Fonte: %s)",
+                        partida.flag_canal,
+                        partida.pontuacao,
+                        partida.modalidade,
+                        partida.categoria,
+                        partida.titulo,
+                        partida.canal,
+                        partida.fonte_confirmacao,
+                    )
 
         # Ordenação Cronológica
         partidas_confirmadas.sort(
@@ -981,11 +1041,19 @@ class FootballScrapingPipeline:
 
     def _salvar(self, partidas: List[PartidaAoVivo]) -> None:
         data = [asdict(p) for p in partidas]
-        tmp = self.output_path.with_suffix(".tmp")
-        with tmp.open("w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        tmp.replace(self.output_path)
-        logger.info("Sucesso! '%s' salvo com %d partida(s) GABARITADAS.", self.output_path, len(partidas))
+        destinos = [self.output_path]
+        public_dir = self.output_path.parent / "public"
+        if public_dir.is_dir():
+            public_out = public_dir / self.output_path.name
+            if public_out.resolve() != self.output_path.resolve():
+                destinos.append(public_out)
+
+        for dest in destinos:
+            tmp = dest.with_suffix(".tmp")
+            with tmp.open("w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            tmp.replace(dest)
+            logger.info("Sucesso! '%s' salvo com %d partida(s) GABARITADAS.", dest, len(partidas))
 
         # Notifica agentes parceiros
         try:

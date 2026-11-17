@@ -1,114 +1,289 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { usePartidas } from './hooks/usePartidas';
 import { Header } from './components/Header';
-import { CategorySection } from './components/CategorySection';
-import { MatchSkeletonList } from './components/MatchSkeleton';
+import { MetricsBar } from './components/MetricsBar';
+import { FilterBar } from './components/FilterBar';
+import { MatchCard } from './components/MatchCard';
+import { TimelineView } from './components/TimelineView';
+import { VideoPlayerModal } from './components/VideoPlayerModal';
+import { MatchDetailModal } from './components/MatchDetailModal';
+import { ClockIcon, SearchIcon } from './components/Icons';
+import { isFeaturedMatch, sortMatches } from './utils/matchHelpers';
 
 export function App() {
   const { partidas, loading, refreshing, errorNotice, lastUpdated, refresh } = usePartidas();
+
+  const [statusFilter, setStatusFilter] = useState('todos');
+  const [viewMode, setViewMode] = useState('cards');
+  const [modalityFilter, setModalityFilter] = useState('todas');
+  const [leagueFilter, setLeagueFilter] = useState('todas');
+  const [categoryFilter, setCategoryFilter] = useState('todas');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filtro de partidas ultra-rápido em memória
+  const [playingMatch, setPlayingMatch] = useState(null);
+  const [selectedMatch, setSelectedMatch] = useState(null);
+
+  const stats = useMemo(() => {
+    let aoVivo = 0;
+    let campo = 0;
+    let futsal = 0;
+    const ligas = new Set();
+
+    partidas.forEach((p) => {
+      if (p.status === 'ao_vivo') aoVivo += 1;
+      if (p.modalidade === 'Futsal' || p.categoria === 'Futsal') futsal += 1;
+      else if (p.modalidade === 'Futebol de Campo' || !p.modalidade) campo += 1;
+      if (p.liga) ligas.add(p.liga);
+    });
+
+    return { aoVivo, campo, futsal, ligas: ligas.size };
+  }, [partidas]);
+
+  const leagues = useMemo(
+    () => [...new Set(partidas.map((p) => p.liga).filter(Boolean))].sort(),
+    [partidas]
+  );
+
+  const hasOtherSports = useMemo(
+    () => partidas.some((p) => p.modalidade === 'Outros Esportes'),
+    [partidas]
+  );
+
+  const categories = useMemo(() => {
+    const counts = new Map();
+    partidas.forEach((p) => {
+      const cat = p.categoria || 'Profissional';
+      counts.set(cat, (counts.get(cat) || 0) + 1);
+    });
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count);
+  }, [partidas]);
+
   const filteredMatches = useMemo(() => {
-    if (!searchTerm.trim()) return partidas;
-    const term = searchTerm.toLowerCase();
-
-    return partidas.filter((match) => {
-      const matchText = `${match.titulo} ${match.campeonato || ''} ${match.canal || ''} ${match.categoria || ''}`.toLowerCase();
-      return matchText.includes(term);
-    });
-  }, [partidas, searchTerm]);
-
-  // Agrupamento por Categoria com ordenação estável
-  const categoriesGroup = useMemo(() => {
-    const groups = {};
-
-    filteredMatches.forEach((match) => {
-      const cat = match.categoria || 'Outras Transmissões';
-      if (!groups[cat]) {
-        groups[cat] = [];
+    const term = searchTerm.toLowerCase().trim();
+    return partidas.filter((p) => {
+      if (statusFilter !== 'todos' && p.status !== statusFilter) return false;
+      if (modalityFilter !== 'todas') {
+        const mod = p.modalidade || (p.categoria === 'Futsal' ? 'Futsal' : 'Futebol de Campo');
+        if (mod !== modalityFilter) return false;
       }
-      groups[cat].push(match);
-    });
+      if (categoryFilter !== 'todas' && (p.categoria || 'Profissional') !== categoryFilter) {
+        return false;
+      }
+      if (leagueFilter !== 'todas' && p.liga !== leagueFilter) return false;
 
-    return groups;
+      if (term) {
+        const haystack = `${p.titulo || ''} ${p.liga || ''} ${p.canal || ''} ${p.categoria || ''} ${p.modalidade || ''}`.toLowerCase();
+        if (!haystack.includes(term)) return false;
+      }
+      return true;
+    });
+  }, [partidas, statusFilter, modalityFilter, categoryFilter, leagueFilter, searchTerm]);
+
+  const { liveMatches, featuredScheduled, otherScheduled } = useMemo(() => {
+    const live = sortMatches(filteredMatches.filter((p) => p.status === 'ao_vivo'));
+    const scheduled = filteredMatches.filter((p) => p.status !== 'ao_vivo');
+    return {
+      liveMatches: live,
+      featuredScheduled: scheduled.filter((p) => isFeaturedMatch(p)),
+      otherScheduled: scheduled.filter((p) => !isFeaturedMatch(p)),
+    };
   }, [filteredMatches]);
 
-  const categoryKeys = Object.keys(categoriesGroup);
+  const hasActiveFilters =
+    statusFilter !== 'todos' ||
+    modalityFilter !== 'todas' ||
+    leagueFilter !== 'todas' ||
+    categoryFilter !== 'todas' ||
+    searchTerm.trim() !== '';
+
+  const clearFilters = useCallback(() => {
+    setStatusFilter('todos');
+    setModalityFilter('todas');
+    setLeagueFilter('todas');
+    setCategoryFilter('todas');
+    setSearchTerm('');
+  }, []);
+
+  const toggleLive = useCallback(() => {
+    setStatusFilter((prev) => (prev === 'ao_vivo' ? 'todos' : 'ao_vivo'));
+  }, []);
+
+  const toggleModality = useCallback((mod) => {
+    setModalityFilter((prev) => (prev === mod ? 'todas' : mod));
+  }, []);
 
   return (
-    <div className="app-container">
-      {/* Topbar com contador de ao vivo e botão refresh */}
-      <Header
-        liveCount={partidas.length}
-        onRefresh={refresh}
-        isRefreshing={refreshing}
-        lastUpdated={lastUpdated}
+    <div className="app-shell">
+      <Header onRefresh={refresh} isRefreshing={refreshing} lastUpdated={lastUpdated} />
+
+      <main className="container main-content">
+        <MetricsBar
+          stats={stats}
+          statusFilter={statusFilter}
+          modalityFilter={modalityFilter}
+          onToggleLive={toggleLive}
+          onToggleModality={toggleModality}
+          onResetFilters={clearFilters}
+        />
+
+        {errorNotice && (
+          <div className="glass notice-banner" role="status">
+            <span>{errorNotice}</span>
+            <button
+              type="button"
+              onClick={refresh}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fda4af',
+                fontWeight: 700,
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Tentar novamente
+            </button>
+          </div>
+        )}
+
+        <FilterBar
+          statusFilter={statusFilter}
+          setStatusFilter={setStatusFilter}
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          modalityFilter={modalityFilter}
+          setModalityFilter={setModalityFilter}
+          leagueFilter={leagueFilter}
+          setLeagueFilter={setLeagueFilter}
+          categoryFilter={categoryFilter}
+          setCategoryFilter={setCategoryFilter}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          leagues={leagues}
+          categories={categories}
+          hasOtherSports={hasOtherSports}
+          hasActiveFilters={hasActiveFilters}
+          onClearFilters={clearFilters}
+        />
+
+        {loading ? (
+          <div className="matches-grid">
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div key={idx} className="glass skeleton-card" />
+            ))}
+          </div>
+        ) : filteredMatches.length === 0 ? (
+          <div className="glass empty-box">
+            <SearchIcon size={36} />
+            <h2 style={{ fontSize: '1.05rem', fontWeight: 800 }}>
+              Nenhum jogo encontrado com esses filtros
+            </h2>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', maxWidth: '26rem' }}>
+              Ajuste os termos de busca ou limpe os filtros para visualizar todas as transmissões disponíveis.
+            </p>
+            {hasActiveFilters && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="btn-watch"
+                style={{ flex: 'none', marginTop: '0.4rem' }}
+              >
+                Limpar filtros
+              </button>
+            )}
+          </div>
+        ) : viewMode === 'timeline' ? (
+          <TimelineView matches={filteredMatches} onSelectMatch={setSelectedMatch} />
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {liveMatches.length > 0 ? (
+              <section className="section-block">
+                <div className="section-header">
+                  <div className="section-title-wrap">
+                    <span className="pulse-dot rose" aria-hidden="true" />
+                    <h2 className="section-title rose">Ao Vivo Agora</h2>
+                    <span className="section-count rose">{liveMatches.length}</span>
+                  </div>
+                </div>
+                <div className="matches-grid">
+                  {liveMatches.map((m) => (
+                    <MatchCard key={m.id_video} match={m} onPlay={setPlayingMatch} />
+                  ))}
+                </div>
+              </section>
+            ) : (
+              statusFilter !== 'agendado' && (
+                <div className="glass notice-banner">
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '999px',
+                        background: '#475569',
+                      }}
+                    />
+                    Nenhuma transmissão ao vivo neste exato instante com os filtros atuais.
+                  </span>
+                  <span style={{ color: '#34d399', fontWeight: 700 }}>
+                    Confira os jogos agendados abaixo ↓
+                  </span>
+                </div>
+              )
+            )}
+
+            {featuredScheduled.length > 0 && (
+              <section className="section-block">
+                <div className="section-header">
+                  <div className="section-title-wrap">
+                    <span style={{ fontSize: '1.1rem' }}>🔥</span>
+                    <h2 className="section-title amber">Destaques Principais</h2>
+                    <span className="section-count amber">{featuredScheduled.length}</span>
+                  </div>
+                  <span className="section-note">
+                    Brasileirão A/B/C/D • Champions • Europa • Conference • Libertadores • Sul-Americana
+                  </span>
+                </div>
+                <div className="matches-grid">
+                  {featuredScheduled.map((m) => (
+                    <MatchCard key={m.id_video} match={m} onPlay={setPlayingMatch} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {otherScheduled.length > 0 && (
+              <section className="section-block">
+                <div className="section-header">
+                  <div className="section-title-wrap">
+                    <ClockIcon size={16} />
+                    <h2 className="section-title emerald">Demais Jogos e Eventos Agendados</h2>
+                    <span className="section-count emerald">{otherScheduled.length}</span>
+                  </div>
+                </div>
+                <div className="matches-grid">
+                  {otherScheduled.map((m) => (
+                    <MatchCard key={m.id_video} match={m} onPlay={setPlayingMatch} />
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        )}
+      </main>
+
+      <MatchDetailModal
+        match={selectedMatch}
+        onClose={() => setSelectedMatch(null)}
+        onPlay={setPlayingMatch}
       />
 
-      {/* Aviso de fallback ou erro temporário */}
-      {errorNotice && (
-        <div className="error-banner" role="status">
-          <span>{errorNotice}</span>
-          <button
-            type="button"
-            onClick={refresh}
-            style={{ background: 'none', border: 'none', color: '#fca5a5', textDecoration: 'underline', cursor: 'pointer' }}
-          >
-            Tentar novamente
-          </button>
-        </div>
-      )}
-
-      {/* Barra de Busca em tempo real */}
-      <div className="filter-bar">
-        <div className="search-input-wrapper">
-          <svg className="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Filtrar por time, campeonato ou canal..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            aria-label="Filtrar partidas de futebol"
-          />
-        </div>
-      </div>
-
-      {/* Estado 1: Loading Inicial */}
-      {loading ? (
-        <MatchSkeletonList count={6} />
-      ) : categoryKeys.length > 0 ? (
-        /* Estado 2: Lista agrupada por categoria */
-        <main>
-          {categoryKeys.map((cat) => (
-            <CategorySection
-              key={cat}
-              categoria={cat}
-              matches={categoriesGroup[cat]}
-            />
-          ))}
-        </main>
-      ) : (
-        /* Estado 3: Lista Vazia */
-        <div className="empty-state">
-          <h2 className="empty-title">Nenhuma partida encontrada</h2>
-          <p className="empty-text">
-            {searchTerm
-              ? `Não foram encontrados jogos para o termo "${searchTerm}". Verifique o filtro.`
-              : 'Não há transmissões cadastradas no momento. Clique em Atualizar para sincronizar.'}
-          </p>
-        </div>
-      )}
-
-      <footer className="footer">
-        <p>Transmissões de futebol ao vivo • SPA otimizada para alta performance e zero custo de servidor.</p>
-      </footer>
+      <VideoPlayerModal
+        match={playingMatch}
+        onClose={() => setPlayingMatch(null)}
+      />
     </div>
   );
 }
-
-export default App;

@@ -3,9 +3,9 @@
     "canal_id": "UCZiYbVptd3PVPf4f6eR6UaQ",
     "nome": "CazéTV",
     "flag_atual": "VIP",
-    "jogos_aprovados": 30,
+    "jogos_aprovados": 40,
     "rejeicoes": 0,
-    "score_reputacao": 600,
+    "score_reputacao": 800,
     "motivos_recentes": [
       "+20 Jogo válido (100 pts)",
       "+20 Jogo válido (100 pts)",
@@ -13,39 +13,39 @@
       "+20 Jogo válido (100 pts)",
       "+20 Jogo válido (100 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UC_oToDrJ6uca7d1dFVBmLtg": {
     "canal_id": "UC_oToDrJ6uca7d1dFVBmLtg",
     "nome": "Canal GOAT",
     "flag_atual": "VIP",
-    "jogos_aprovados": 50,
+    "jogos_aprovados": 80,
     "rejeicoes": 0,
-    "score_reputacao": 1000,
+    "score_reputacao": 1600,
     "motivos_recentes": [
       "+20 Jogo válido (110 pts)",
       "+20 Jogo válido (110 pts)",
       "+20 Jogo válido (110 pts)",
-      "+20 Jogo válido (110 pts)",
-      "+20 Jogo válido (110 pts)"
+      "+20 Jogo válido (100 pts)",
+      "+20 Jogo válido (100 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCgCKagVhzGnZcuP9bSMgMCg": {
     "canal_id": "UCgCKagVhzGnZcuP9bSMgMCg",
     "nome": "ge tv",
     "flag_atual": "VIP",
-    "jogos_aprovados": 85,
-    "rejeicoes": 15,
-    "score_reputacao": 2025,
+    "jogos_aprovados": 103,
+    "rejeicoes": 23,
+    "score_reputacao": 2305,
     "motivos_recentes": [
+      "+30 Jogo válido (100 pts)",
       "-25 Canal Oficial / Licenciado (GE TV)",
-      "+30 Jogo válido (100 pts)",
-      "+30 Jogo válido (100 pts)",
+      "-25 Canal Oficial / Licenciado (GE TV)",
       "+30 Jogo válido (100 pts)",
       "+30 Jogo válido (100 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCH-BU-Os3JSo2L8lBQxE8KA": {
     "canal_id": "UCH-BU-Os3JSo2L8lBQxE8KA",
@@ -93,15 +93,15 @@
       "+30 Jogo válido (80 pts)",
       "+30 Jogo válido (80 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCQm8rQBRn_qRHMOWdnYtA_w": {
     "canal_id": "UCQm8rQBRn_qRHMOWdnYtA_w",
     "nome": "Confederação Brasileira de Futebol de Salão (CBFS)",
     "flag_atual": "PADRAO",
-    "jogos_aprovados": 65,
+    "jogos_aprovados": 109,
     "rejeicoes": 0,
-    "score_reputacao": 1950,
+    "score_reputacao": 3270,
     "motivos_recentes": [
       "+30 Jogo válido (95 pts)",
       "+30 Jogo válido (95 pts)",
@@ -109,23 +109,23 @@
       "+30 Jogo válido (95 pts)",
       "+30 Jogo válido (95 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCw5-xj3AKqEizC7MvHaIPqA": {
     "canal_id": "UCw5-xj3AKqEizC7MvHaIPqA",
     "nome": "ESPN Brasil",
     "flag_atual": "PADRAO",
-    "jogos_aprovados": 15,
-    "rejeicoes": 10,
-    "score_reputacao": -25,
+    "jogos_aprovados": 19,
+    "rejeicoes": 12,
+    "score_reputacao": 5,
     "motivos_recentes": [
-      "+20 Jogo válido (110 pts)",
-      "-40 Descartado no crivo",
       "-25 Canal Oficial / Licenciado (ESPN BRASIL)",
       "+20 Jogo válido (110 pts)",
+      "+20 Jogo válido (110 pts)",
+      "-25 Canal Oficial / Licenciado (ESPN BRASIL)",
       "+20 Jogo válido (110 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UC3FLt3_i0h0CqYPyEEU2JSQ": {
     "canal_id": "UC3FLt3_i0h0CqYPyEEU2JSQ",
@@ -147,7 +147,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCkkqXUQYUT0pC8RjZpfTZCQ": {
     "canal_id": "UCkkqXUQYUT0pC8RjZpfTZCQ",
@@ -170,7 +170,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCRoUsUuGYc-91UMHxsnKgqg": {
     "canal_id": "UCRoUsUuGYc-91UMHxsnKgqg",
@@ -266,7 +266,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCSkaixM5p8mYuBIdy2J0ZHw": {
     "canal_id": "UCSkaixM5p8mYuBIdy2J0ZHw",
@@ -306,7 +306,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCmeQUS5OZLev0cdQlRTCkLw": {
     "canal_id": "UCmeQUS5OZLev0cdQlRTCkLw",
@@ -316,7 +316,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCVQG1pBkRM4xlRrBmV65kUw": {
     "canal_id": "UCVQG1pBkRM4xlRrBmV65kUw",
@@ -378,7 +378,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCXsJyNCjFthPLQ9U5KI-Frg": {
     "canal_id": "UCXsJyNCjFthPLQ9U5KI-Frg",
@@ -388,7 +388,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCxpLlznh8lB4awYGMFFOfkw": {
     "canal_id": "UCxpLlznh8lB4awYGMFFOfkw",
@@ -398,7 +398,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCzrUxsS8964ic3qLgQTiO3w": {
     "canal_id": "UCzrUxsS8964ic3qLgQTiO3w",
@@ -434,7 +434,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCImu8qJ7v1TOdZFe7JbFbxw": {
     "canal_id": "UCImu8qJ7v1TOdZFe7JbFbxw",
@@ -638,7 +638,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:05"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCArPLoGddL8etAfWKgTSISw": {
     "canal_id": "UCArPLoGddL8etAfWKgTSISw",
@@ -662,7 +662,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UC7fedBVCaVPhMNI_axwg69w": {
     "canal_id": "UC7fedBVCaVPhMNI_axwg69w",
@@ -685,7 +685,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCFgk2Q2mVO1BklRQhSv6p0w": {
     "canal_id": "UCFgk2Q2mVO1BklRQhSv6p0w",
@@ -695,7 +695,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCHSx3wCUhrasDqMq17MrD6w": {
     "canal_id": "UCHSx3wCUhrasDqMq17MrD6w",
@@ -752,7 +752,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCh5MQwi8K56I453DeQ3erDw": {
     "canal_id": "UCh5MQwi8K56I453DeQ3erDw",
@@ -762,20 +762,21 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:24"
   },
   "UCGbofRROopWrumVob5w61OA": {
     "canal_id": "UCGbofRROopWrumVob5w61OA",
     "nome": "Caso Cerrado",
     "flag_atual": "DESCOBERTA",
     "jogos_aprovados": 0,
-    "rejeicoes": 2,
-    "score_reputacao": -50,
+    "rejeicoes": 3,
+    "score_reputacao": -75,
     "motivos_recentes": [
+      "-25 Verificado via Guia de Transmissão",
       "-25 Verificado via Guia de Transmissão",
       "-25 Verificado via Guia de Transmissão"
     ],
-    "ultima_atualizacao": "2026-11-12 08:05"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCJElRTCNEmLemgirqvsW63Q": {
     "canal_id": "UCJElRTCNEmLemgirqvsW63Q",
@@ -868,7 +869,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCVT44GDQePOsKk-EZKeO1DQ": {
     "canal_id": "UCVT44GDQePOsKk-EZKeO1DQ",
@@ -878,7 +879,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCR9120YBAqMfntqgRTKmkjQ": {
     "canal_id": "UCR9120YBAqMfntqgRTKmkjQ",
@@ -902,7 +903,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:24"
   },
   "UCiaePeoCqpU8hBHiNrgkzrA": {
     "canal_id": "UCiaePeoCqpU8hBHiNrgkzrA",
@@ -912,7 +913,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UC2dULJJ_G6TTNjsunSxP7ag": {
     "canal_id": "UC2dULJJ_G6TTNjsunSxP7ag",
@@ -922,7 +923,7 @@
     "rejeicoes": 0,
     "score_reputacao": 0,
     "motivos_recentes": [],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCHFvwz9nuv_nRPjzN5u4e3w": {
     "canal_id": "UCHFvwz9nuv_nRPjzN5u4e3w",
@@ -977,9 +978,9 @@
     "canal_id": "UCsiCOcr5SZAWlJMfcw9P__w",
     "nome": "NBA Brasil",
     "flag_atual": "VIP",
-    "jogos_aprovados": 6,
+    "jogos_aprovados": 12,
     "rejeicoes": 0,
-    "score_reputacao": 120,
+    "score_reputacao": 240,
     "motivos_recentes": [
       "+20 Jogo válido (100 pts)",
       "+20 Jogo válido (100 pts)",
@@ -987,7 +988,7 @@
       "+20 Jogo válido (100 pts)",
       "+20 Jogo válido (100 pts)"
     ],
-    "ultima_atualizacao": "2026-11-12 08:37"
+    "ultima_atualizacao": "2026-11-17 07:29"
   },
   "UCxXs3Mz-_vK1L_pRBDAhgdg": {
     "canal_id": "UCxXs3Mz-_vK1L_pRBDAhgdg",
@@ -1017,12 +1018,13 @@
     "nome": "DYBThePitchReportLive 61",
     "flag_atual": "DESCOBERTA",
     "jogos_aprovados": 0,
-    "rejeicoes": 1,
-    "score_reputacao": -40,
+    "rejeicoes": 2,
+    "score_reputacao": -80,
     "motivos_recentes": [
+      "-40 Descartado no crivo",
       "-40 Descartado no crivo"
     ],
-    "ultima_atualizacao": "2026-11-12 08:01"
+    "ultima_atualizacao": "2026-11-17 07:24"
   },
   "UC-I7i0YfLPHfUoH6-m2uUAw": {
     "canal_id": "UC-I7i0YfLPHfUoH6-m2uUAw",
@@ -1107,5 +1109,282 @@
       "-40 Descartado no crivo"
     ],
     "ultima_atualizacao": "2026-11-12 08:37"
+  },
+  "UCdQuDaRww5NkKpQQ1BJBWww": {
+    "canal_id": "UCdQuDaRww5NkKpQQ1BJBWww",
+    "nome": "Confederação Brasileira de Futebol",
+    "flag_atual": "PADRAO",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -50,
+    "motivos_recentes": [
+      "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB",
+      "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UC0WYRNtJAVUxSA9iP7kIoTA": {
+    "canal_id": "UC0WYRNtJAVUxSA9iP7kIoTA",
+    "nome": "Na Rede Oficial",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -100,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCyvgW7qUI4RicX9KbMCabPQ": {
+    "canal_id": "UCyvgW7qUI4RicX9KbMCabPQ",
+    "nome": "Litoral News",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -80,
+    "motivos_recentes": [
+      "-40 Verificado via Guia de Transmissão",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:24"
+  },
+  "UCvsPgR_Dfe8tXWzSVteasqw": {
+    "canal_id": "UCvsPgR_Dfe8tXWzSVteasqw",
+    "nome": "BTB SPORTS OFICIAL",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 1,
+    "rejeicoes": 1,
+    "score_reputacao": -30,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "+30 Jogo válido (80 pts)"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCI6xsaYFLb2d9T9z4m6fCDw": {
+    "canal_id": "UCI6xsaYFLb2d9T9z4m6fCDw",
+    "nome": "Dibrou Sports Brasil",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -100,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCbqEUQTg0a3gR3X_nninkKQ": {
+    "canal_id": "UCbqEUQTg0a3gR3X_nninkKQ",
+    "nome": "Canal 7sports",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCeCITRe4KHrRbzwqtZFDRFA": {
+    "canal_id": "UCeCITRe4KHrRbzwqtZFDRFA",
+    "nome": "Voz do Esporte",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 1,
+    "rejeicoes": 2,
+    "score_reputacao": -90,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "+30 Jogo válido (80 pts)"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UC19K61Sgau4unRie5jne3cw": {
+    "canal_id": "UC19K61Sgau4unRie5jne3cw",
+    "nome": "FuteOni TV",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -100,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UC978A4ggT9g58SWOhgFuS1g": {
+    "canal_id": "UC978A4ggT9g58SWOhgFuS1g",
+    "nome": "Futebol Stats",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -100,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCe1XGNDeEwAx5xaLGcNPEbQ": {
+    "canal_id": "UCe1XGNDeEwAx5xaLGcNPEbQ",
+    "nome": "TV Jornal SBT",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -80,
+    "motivos_recentes": [
+      "-40 Verificado via Guia de Transmissão",
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCmm8CkaukoBTADBFYOwhZ8Q": {
+    "canal_id": "UCmm8CkaukoBTADBFYOwhZ8Q",
+    "nome": "TJR SPORT TV",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -40,
+    "motivos_recentes": [
+      "-40 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:24"
+  },
+  "UCMTJ_T6a25yBt6ettIdxy0w": {
+    "canal_id": "UCMTJ_T6a25yBt6ettIdxy0w",
+    "nome": "tab Brasileirão Cortes",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -100,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo",
+      "-40 Canal com perfil de spam/clickbait"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCzGaAicqSuLNUdht_Y9m2aw": {
+    "canal_id": "UCzGaAicqSuLNUdht_Y9m2aw",
+    "nome": "URMGameGlowLive 66",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -80,
+    "motivos_recentes": [
+      "-40 Descartado no crivo",
+      "-40 Descartado no crivo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:24"
+  },
+  "UCLcbI5v6tNaG4N_U2y-3WAA": {
+    "canal_id": "UCLcbI5v6tNaG4N_U2y-3WAA",
+    "nome": "UYYSportSpunkLive 26",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 2,
+    "score_reputacao": -80,
+    "motivos_recentes": [
+      "-40 Descartado no crivo",
+      "-40 Descartado no crivo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCLJ0ABXgiTa74F4_X91N-3Q": {
+    "canal_id": "UCLJ0ABXgiTa74F4_X91N-3Q",
+    "nome": "Deportes Al Taco",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCBPasXWxj1DYJLqZktw_UWg": {
+    "canal_id": "UCBPasXWxj1DYJLqZktw_UWg",
+    "nome": "La Secta Deportiva",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCiN40zpNQVWT9cUeahegtmA": {
+    "canal_id": "UCiN40zpNQVWT9cUeahegtmA",
+    "nome": "Cábala Futbolera",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCNHkxojmJmEuMg0W-LA3awQ": {
+    "canal_id": "UCNHkxojmJmEuMg0W-LA3awQ",
+    "nome": "La Casaca Futbol",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UC-WRvdbj-jmGiNvq1o2xvxA": {
+    "canal_id": "UC-WRvdbj-jmGiNvq1o2xvxA",
+    "nome": "Felipe Marques Yt",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -40,
+    "motivos_recentes": [
+      "-40 Canal com perfil de spam/clickbait"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:24"
+  },
+  "UCHCTXss2b7NB2RIis1q3bag": {
+    "canal_id": "UCHCTXss2b7NB2RIis1q3bag",
+    "nome": "Resenha de Bar 🍻",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -25,
+    "motivos_recentes": [
+      "-25 Verificado via Guia de Transmissão"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:24"
+  },
+  "UCVioK3pzEz5JF4Nkm3xjdXA": {
+    "canal_id": "UCVioK3pzEz5JF4Nkm3xjdXA",
+    "nome": "Livesport",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -40,
+    "motivos_recentes": [
+      "-40 Descartado no crivo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
+  },
+  "UCv-Nx8pSfG_LxbViMz14RWQ": {
+    "canal_id": "UCv-Nx8pSfG_LxbViMz14RWQ",
+    "nome": "Jovem Pan Esportes",
+    "flag_atual": "DESCOBERTA",
+    "jogos_aprovados": 0,
+    "rejeicoes": 1,
+    "score_reputacao": -60,
+    "motivos_recentes": [
+      "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    ],
+    "ultima_atualizacao": "2026-11-17 07:29"
   }
 }
