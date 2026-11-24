@@ -1042,11 +1042,14 @@ class FootballScrapingPipeline:
     def _salvar(self, partidas: List[PartidaAoVivo]) -> None:
         data = [asdict(p) for p in partidas]
         destinos = [self.output_path]
-        public_dir = self.output_path.parent / "public"
-        if public_dir.is_dir():
-            public_out = public_dir / self.output_path.name
-            if public_out.resolve() != self.output_path.resolve():
-                destinos.append(public_out)
+        for candidate_public in (
+            self.output_path.parent / "public",
+            self.output_path.parent / "site" / "public",
+        ):
+            if candidate_public.is_dir():
+                public_out = candidate_public / self.output_path.name
+                if public_out.resolve() != self.output_path.resolve():
+                    destinos.append(public_out)
 
         for dest in destinos:
             tmp = dest.with_suffix(".tmp")

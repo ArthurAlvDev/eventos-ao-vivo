@@ -1,18 +1,25 @@
 {
-  "atualizado_em": "2026-11-17 07:33:56",
+  "atualizado_em": "2026-11-19 05:00:39",
   "candidatos_aprovacao_direta_vip": [
     {
       "canal": "Confederação Brasileira de Futebol de Salão (CBFS)",
       "canal_id": "UCQm8rQBRn_qRHMOWdnYtA_w",
-      "score_reputacao": 3930,
-      "jogos_aprovados": 131,
+      "score_reputacao": 28830,
+      "jogos_aprovados": 961,
       "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
     },
     {
-      "canal": "TNT Sports Brasil",
-      "canal_id": "UCs-6sCz2LJm1PrWQN4ErsPw",
-      "score_reputacao": 150,
-      "jogos_aprovados": 5,
+      "canal": "Canal de Esportes Nelson Couto ",
+      "canal_id": "UC-F2SZIZ2fIvIy5EU9hRxoQ",
+      "score_reputacao": 300,
+      "jogos_aprovados": 10,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "Botafogo TV",
+      "canal_id": "UCFxjZDrLCOCHkUCu632AmMQ",
+      "score_reputacao": 210,
+      "jogos_aprovados": 7,
       "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
     },
     {
@@ -20,6 +27,13 @@
       "canal_id": "UCqRraVICLr0asn90cAvkIZQ",
       "score_reputacao": 120,
       "jogos_aprovados": 4,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
+      "canal": "PORTAL BRAZUCA",
+      "canal_id": "UCK1Xd3A-pZhkO3PGuAeUvbw",
+      "score_reputacao": 120,
+      "jogos_aprovados": 6,
       "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
     },
     {
@@ -37,6 +51,13 @@
       "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
     },
     {
+      "canal": "TV CRUZEIRO | Cruzeiro Esporte Clube",
+      "canal_id": "UCqifkpdmE1z3VhfQoJzwpJQ",
+      "score_reputacao": 90,
+      "jogos_aprovados": 3,
+      "motivo": "Múltiplas transmissões legítimas de alta pontuação sem infrações"
+    },
+    {
       "canal": "+3 Minutos",
       "canal_id": "UCbAA8wPRAGwZcJQhIDRz7mg",
       "score_reputacao": 60,
@@ -45,6 +66,13 @@
     }
   ],
   "candidatos_blocklist": [
+    {
+      "canal": "Confederação Brasileira de Futebol",
+      "canal_id": "UCdQuDaRww5NkKpQQ1BJBWww",
+      "score_reputacao": -200,
+      "rejeicoes": 8,
+      "motivo": "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB | -25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB"
+    },
     {
       "canal": "Na Rede Oficial",
       "canal_id": "UC0WYRNtJAVUxSA9iP7kIoTA",
@@ -69,6 +97,13 @@
     {
       "canal": "Futebol Stats",
       "canal_id": "UC978A4ggT9g58SWOhgFuS1g",
+      "score_reputacao": -100,
+      "rejeicoes": 2,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "TJR SPORT TV",
+      "canal_id": "UCmm8CkaukoBTADBFYOwhZ8Q",
       "score_reputacao": -100,
       "rejeicoes": 2,
       "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo | -40 Verificado via Guia de Transmissão"
@@ -249,6 +284,13 @@
       "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
     },
     {
+      "canal": "TRANSMISSÃO AO VIVO CIDADE",
+      "canal_id": "UCak21Edmz9LDZ_3-bl3TNyA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
       "canal": "KIYScoreShowcase",
       "canal_id": "UCYbyViw2fk3NC7iGf_nkoMw",
       "score_reputacao": -80,
@@ -310,6 +352,62 @@
       "score_reputacao": -80,
       "rejeicoes": 2,
       "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "O TEMPO",
+      "canal_id": "UCx7Ohl0Ln516T5pu5M8_SMA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "ZVVSportingPulseLive 24",
+      "canal_id": "UCKFyXXc_t4mfM6ikcVWFHAw",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "Coy o Corintiano",
+      "canal_id": "UCpJJ6uZSZskkeeU-4RCNaeQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Descartado no crivo | -40 Descartado no crivo"
+    },
+    {
+      "canal": "Armando Naranjo - Fútbol en Línea",
+      "canal_id": "UCaZABt4qNTN-4Nn75gh4pYA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "NewsX World",
+      "canal_id": "UCvu9pKtF3Y8KaJVD-WMiOrg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "AWENO TV",
+      "canal_id": "UCWCO8lrit7sG_OPzKpnWWwA",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Verificado via Guia de Transmissão | -40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Rádio Difusora",
+      "canal_id": "UCfOwkDkTT_pu3uO88Po6dQg",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Canal com perfil de spam/clickbait | -40 Canal com perfil de spam/clickbait"
+    },
+    {
+      "canal": "Radio Coração do Paraná",
+      "canal_id": "UC5oinErhay1t9oLKs8vfkHQ",
+      "score_reputacao": -80,
+      "rejeicoes": 2,
+      "motivo": "-40 Canal com perfil de spam/clickbait | -40 Canal com perfil de spam/clickbait"
     },
     {
       "canal": "Gaúcha",
@@ -382,11 +480,60 @@
       "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
     },
     {
-      "canal": "Confederação Brasileira de Futebol",
-      "canal_id": "UCdQuDaRww5NkKpQQ1BJBWww",
+      "canal": "Todo Noticias",
+      "canal_id": "UCj6PcyLvpnIRT_2W_mwa9Aw",
       "score_reputacao": -75,
       "rejeicoes": 3,
-      "motivo": "-25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB | -25 Canal Oficial / Licenciado (CONFEDERAÇÃO BRASILEIRA DE FUTEB"
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "LA NACION",
+      "canal_id": "UCba3hpU7EFBSk817y9qZkiA",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "RTVE Noticias",
+      "canal_id": "UC7QZIf0dta-XPXsp9Hv4dTw",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Noticias Caracol",
+      "canal_id": "UC2Xq2PK-got3Rtz9ZJ32hLQ",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "TV Boca no Trombone - BnT Online",
+      "canal_id": "UCXU82DcPZ8qEvhasZekZGUQ",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "O TEMPO Sports",
+      "canal_id": "UC73p5mW8WiD-k0P9iD5WBJA",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "CHV Noticias",
+      "canal_id": "UCRsUoZYC1ULUspipMRnMhwg",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Alternativa Esportes",
+      "canal_id": "UCkCOcfSfbMQDH_A8cf9trwA",
+      "score_reputacao": -75,
+      "rejeicoes": 3,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
     },
     {
       "canal": "Brzxx ZODx",
@@ -405,6 +552,13 @@
     {
       "canal": "RB SHORYA ",
       "canal_id": "UCIaC1jN1NLMPcAqAGA_9M-g",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Jovem Pan News",
+      "canal_id": "UCP391YRAjSOdM_bwievgaZA",
       "score_reputacao": -60,
       "rejeicoes": 1,
       "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
@@ -459,11 +613,144 @@
       "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
     },
     {
-      "canal": "TRANSMISSÃO AO VIVO CIDADE",
-      "canal_id": "UCak21Edmz9LDZ_3-bl3TNyA",
-      "score_reputacao": -40,
+      "canal": "The Daily Guardian",
+      "canal_id": "UCG7JI87raV6HrgJheRi0MVg",
+      "score_reputacao": -60,
       "rejeicoes": 1,
-      "motivo": "-40 Verificado via Guia de Transmissão"
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Falso Nueve TV 📺⚽",
+      "canal_id": "UCJfaLpZJN0-6kbAg3dVIfLw",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Diário Celeste",
+      "canal_id": "UCjbb_qVwWuA0MJgCKucBTFg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "O Tikitaka Sports",
+      "canal_id": "UCg9reZi3rZq8347lgNl6FCQ",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Rádio Craque Neto",
+      "canal_id": "UCZShhGzxHVd1xgiBhDDpYYA",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "ESPN Fans",
+      "canal_id": "UCFmMw7yTuLTCuMhpZD5dVsg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "TINA",
+      "canal_id": "UCX7jn1nUtxb56uwqsQiSS4A",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Balón En Llamas ",
+      "canal_id": "UCv5ESEbu5srjlaDnphhw0dA",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "A Rede Balança! Narração Fabrício Marília",
+      "canal_id": "UC5PBP_G3wMJH25Hrx3i-Uig",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Os Treinadores do Sofá",
+      "canal_id": "UCIcfPb6k3nohDfE1EsjRqIQ",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Fuera de Juego",
+      "canal_id": "UCGBMy0BSKuBR-VWUIXO3FCg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "ITV Blink",
+      "canal_id": "UCXNf0QwxzmwQHdtqINFK6Uw",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "TMC Esporte",
+      "canal_id": "UC7COFHIM1-Osm9Sm0qIz-xQ",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "A R Music UP.38",
+      "canal_id": "UCs90iFYR5M0WQvNIQNbB-DQ",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "SALVADOR TV",
+      "canal_id": "UCUTfNYFn_ZAdfMQyBZiErXg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "honey Omari",
+      "canal_id": "UCdKn6zuJaNTOTWiVv6fkeOg",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Victorplayer4",
+      "canal_id": "UC81N-kYsdA4NVV_0bqb6yxA",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Mundo Cubito",
+      "canal_id": "UCndwww3DR9PhUP5WNVb3NNA",
+      "score_reputacao": -60,
+      "rejeicoes": 1,
+      "motivo": "-60 Não listado nos guias oficiais (GE/UOL/LiveSoccerTV) para jo"
+    },
+    {
+      "canal": "Central FLA",
+      "canal_id": "UCHzjl4w6zwI7JgKnBdAqgnQ",
+      "score_reputacao": -50,
+      "rejeicoes": 2,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Latina Noticias",
+      "canal_id": "UCpSJ5fGhmAME9Kx2D3ZvN3Q",
+      "score_reputacao": -50,
+      "rejeicoes": 2,
+      "motivo": "-25 Verificado via Guia de Transmissão | -25 Verificado via Guia de Transmissão"
     },
     {
       "canal": "Deportes y Entretenimiento ",
@@ -473,13 +760,6 @@
       "motivo": "-40 Descartado no crivo"
     },
     {
-      "canal": "TJR SPORT TV",
-      "canal_id": "UCmm8CkaukoBTADBFYOwhZ8Q",
-      "score_reputacao": -40,
-      "rejeicoes": 1,
-      "motivo": "-40 Verificado via Guia de Transmissão"
-    },
-    {
       "canal": "Felipe Marques Yt",
       "canal_id": "UC-WRvdbj-jmGiNvq1o2xvxA",
       "score_reputacao": -40,
@@ -487,8 +767,29 @@
       "motivo": "-40 Canal com perfil de spam/clickbait"
     },
     {
-      "canal": "O TEMPO",
-      "canal_id": "UCx7Ohl0Ln516T5pu5M8_SMA",
+      "canal": "Golo FM",
+      "canal_id": "UCX_YubBBVVzTyy9dHKHxhuQ",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "RADIO EMISORA PASTOREO ÑUAI FM 94.9",
+      "canal_id": "UC67UKeBIBsBKN5kJprP7gUQ",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Canal com perfil de spam/clickbait"
+    },
+    {
+      "canal": "MATCHDAY TV",
+      "canal_id": "UCR6P-H8VCF2rhxkO90Jb5bg",
+      "score_reputacao": -40,
+      "rejeicoes": 1,
+      "motivo": "-40 Verificado via Guia de Transmissão"
+    },
+    {
+      "canal": "Cross",
+      "canal_id": "UCu1JULG6VBu7gUhJRWW6ncQ",
       "score_reputacao": -40,
       "rejeicoes": 1,
       "motivo": "-40 Verificado via Guia de Transmissão"
