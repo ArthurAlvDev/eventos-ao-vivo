@@ -1,6 +1,11 @@
 """Testes de integridade do modelo, crivo de pontuação e regras anti-fake."""
 
 from dataclasses import asdict
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scraper"))
+
 from search_live_football import PartidaAoVivo, SistemaPontuacaoPartida, BlocklistManager
 
 

@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnRefresh) btnRefresh.classList.add("spinning");
 
     try {
+      // No Chrome extension, caminho relativo './partidas.json' sem query string funciona perfeitamente
       const response = await fetch("./partidas.json");
       if (!response.ok) {
         throw new Error(`Status ${response.status}`);
@@ -191,12 +192,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (err) {
       console.warn("Aviso ao carregar partidas.json, usando catálogo padrão:", err);
+      // Fallback gracioso imediato
       renderMatches(FALLBACK_MATCHES);
     } finally {
       if (btnRefresh) btnRefresh.classList.remove("spinning");
     }
   }
 
+  // Intercepta cliques para garantir abertura no Chrome
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a.match-link");
     if (link && link.href) {
