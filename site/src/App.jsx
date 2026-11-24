@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { usePartidas } from './hooks/usePartidas';
 import { Header } from './components/Header';
 import { MetricsBar } from './components/MetricsBar';
@@ -7,8 +7,9 @@ import { MatchCard } from './components/MatchCard';
 import { TimelineView } from './components/TimelineView';
 import { VideoPlayerModal } from './components/VideoPlayerModal';
 import { MatchDetailModal } from './components/MatchDetailModal';
-import { ClockIcon, SearchIcon } from './components/Icons';
+import { ClockIcon, SearchIcon, ExternalLinkIcon } from './components/Icons';
 import { isFeaturedMatch, sortMatches } from './utils/matchHelpers';
+import { COMMUNITY_LINKS, OFFICIAL_PARTNERS } from './constants/partners';
 
 export function App() {
   const { partidas, loading, refreshing, errorNotice, lastUpdated, refresh } = usePartidas();
@@ -22,6 +23,19 @@ export function App() {
 
   const [playingMatch, setPlayingMatch] = useState(null);
   const [selectedMatch, setSelectedMatch] = useState(null);
+
+  useEffect(() => {
+    const base = 'Radar da Bola - Partidas Reais Ao Vivo & Cronograma';
+    if (leagueFilter !== 'todas') {
+      document.title = `${leagueFilter} Ao Vivo | Radar da Bola`;
+    } else if (categoryFilter !== 'todas') {
+      document.title = `${categoryFilter} Ao Vivo | Radar da Bola`;
+    } else if (modalityFilter !== 'todas') {
+      document.title = `${modalityFilter} Ao Vivo | Radar da Bola`;
+    } else {
+      document.title = base;
+    }
+  }, [leagueFilter, categoryFilter, modalityFilter]);
 
   const stats = useMemo(() => {
     let aoVivo = 0;
@@ -273,6 +287,53 @@ export function App() {
           </div>
         )}
       </main>
+
+      {(COMMUNITY_LINKS.telegramUrl || OFFICIAL_PARTNERS.length > 0) && (
+        <footer className="container" style={{ paddingBottom: '2rem' }}>
+          <div
+            className="glass"
+            style={{
+              padding: '0.9rem 1.2rem',
+              borderRadius: 'var(--radius-md)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '0.75rem',
+            }}
+          >
+            {COMMUNITY_LINKS.telegramUrl && (
+              <a
+                href={COMMUNITY_LINKS.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-watch-alt"
+                style={{ flex: 'none' }}
+              >
+                <ExternalLinkIcon size={13} />
+                <span>{COMMUNITY_LINKS.telegramLabel}</span>
+              </a>
+            )}
+            {OFFICIAL_PARTNERS.length > 0 && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {OFFICIAL_PARTNERS.map((p) => (
+                  <a
+                    key={p.id}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="btn-watch-alt"
+                    style={{ flex: 'none' }}
+                  >
+                    <ExternalLinkIcon size={13} />
+                    <span>{p.label}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </footer>
+      )}
 
       <MatchDetailModal
         match={selectedMatch}
